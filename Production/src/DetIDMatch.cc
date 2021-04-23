@@ -74,7 +74,6 @@ void fill(const edm::Event& iEvent, const edm::EventSetup& iSetup){
         simcluster_detids_.push_back(detid_energy);
     }
     associateClusterToSimCluster(all_elements);
-
 };
 
 
