@@ -2,33 +2,6 @@
 */
 #pragma once
 
-
-
-#include "DataFormats/ParticleFlowCandidate/interface/PFCandidate.h"
-#include "DataFormats/ParticleFlowReco/interface/PFBlockElementSuperCluster.h"
-#include "DataFormats/ParticleFlowReco/interface/PFBlockElementGsfTrack.h"
-#include "DataFormats/ParticleFlowReco/interface/PFBlockElementTrack.h"
-#include "DataFormats/ParticleFlowReco/interface/PFBlockElementBrem.h"
-#include "DataFormats/ParticleFlowReco/interface/PFBlockElementCluster.h"
-
-#include "DataFormats/HcalDetId/interface/HcalDetId.h"
-#include "DataFormats/EcalDetId/interface/EcalSubdetector.h"
-#include "Geometry/HcalTowerAlgo/interface/HcalGeometry.h"
-#include "SimDataFormats/CaloAnalysis/interface/CaloParticle.h"
-#include "SimDataFormats/CaloAnalysis/interface/SimCluster.h"
-
-#include "DataFormats/HcalRecHit/interface/HcalRecHitCollections.h"
-#include "Geometry/HcalCommonData/interface/HcalHitRelabeller.h"
-#include "DataFormats/HcalDetId/interface/HcalDetId.h"
-
-#include "DataFormats/ParticleFlowReco/interface/PFCluster.h"
-#include "DataFormats/VertexReco/interface/Vertex.h"
-#include "DataFormats/RecoCandidate/interface/TrackAssociation.h"
-
-#include "DataFormats/DetId/interface/DetId.h"
-#include "FWCore/ParameterSet/interface/ParameterSet.h"
-
-
 #include "FWCore/Framework/interface/Frameworkfwd.h"
 #include "FWCore/Framework/interface/one/EDAnalyzer.h"
 
@@ -36,12 +9,60 @@
 #include "FWCore/Framework/interface/Event.h"
 #include "FWCore/Framework/interface/MakerMacros.h"
 
-// #include "DataFormats/Math/interface/deltaPhi.h"
-#include "Math/Transform3D.h" // For the 'Point'
+#include "FWCore/ParameterSet/interface/ParameterSet.h"
 
+#include "DataFormats/CaloRecHit/interface/CaloClusterFwd.h"
+#include "DataFormats/EgammaCandidates/interface/GsfElectron.h"
+#include "DataFormats/GsfTrackReco/interface/GsfTrack.h"
+#include "DataFormats/HcalRecHit/interface/HFRecHit.h"
+#include "DataFormats/HcalRecHit/interface/HcalRecHitCollections.h"
+#include "Geometry/HcalCommonData/interface/HcalHitRelabeller.h"
+#include "DataFormats/HcalDetId/interface/HcalDetId.h"
+#include "DataFormats/EcalDetId/interface/EcalSubdetector.h"
+#include "DataFormats/ParticleFlowReco/interface/PFCluster.h"
+#include "DataFormats/VertexReco/interface/Vertex.h"
+#include "DataFormats/ParticleFlowCandidate/interface/PFCandidate.h"
+#include "DataFormats/ParticleFlowReco/interface/PFBlockElementSuperCluster.h"
+#include "DataFormats/ParticleFlowReco/interface/PFBlockElementGsfTrack.h"
+#include "DataFormats/ParticleFlowReco/interface/PFBlockElementTrack.h"
+#include "DataFormats/ParticleFlowReco/interface/PFBlockElementBrem.h"
+#include "DataFormats/ParticleFlowReco/interface/PFBlockElementCluster.h"
+#include "Geometry/HcalTowerAlgo/interface/HcalGeometry.h"
+#include "SimDataFormats/CaloAnalysis/interface/CaloParticle.h"
+#include "SimDataFormats/CaloAnalysis/interface/SimCluster.h"
+#include "SimDataFormats/GeneratorProducts/interface/HepMCProduct.h"
+#include "SimDataFormats/TrackingAnalysis/interface/TrackingParticle.h"
+#include "DataFormats/RecoCandidate/interface/TrackAssociation.h"
+#include "DataFormats/ParticleFlowReco/interface/PFBlock.h"
 
+#include "DataFormats/Math/interface/deltaPhi.h"
+#include "DataFormats/TrackReco/interface/Track.h"
+#include "DataFormats/DetId/interface/DetId.h"
 
+#include "DataFormats/GeometrySurface/interface/PlaneBuilder.h"
+#include "Geometry/CaloGeometry/interface/CaloCellGeometry.h"
+#include "Geometry/CaloGeometry/interface/CaloGeometry.h"
+#include "Geometry/CaloGeometry/interface/CaloSubdetectorGeometry.h"
+#include "Geometry/Records/interface/CaloGeometryRecord.h"
+
+#include "CommonTools/BaseParticlePropagator/interface/BaseParticlePropagator.h"
+#include "Math/Transform3D.h"
+#include "MagneticField/Engine/interface/MagneticField.h"
+#include "MagneticField/Records/interface/IdealMagneticFieldRecord.h"
+#include "MagneticField/VolumeGeometry/interface/MagVolumeOutsideValidity.h"
+#include "RecoParticleFlow/PFProducer/interface/MLPFModel.h"
+
+#include "CommonTools/UtilAlgos/interface/TFileService.h"
+#include "FWCore/ServiceRegistry/interface/Service.h"
+#include "TH1F.h"
+#include "TVector2.h"
+#include "TTree.h"
+
+#include <map>
+#include <set>
+#include <string>
 #include <vector>
+#include <set>
 
 
 
