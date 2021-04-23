@@ -108,6 +108,7 @@ private:
     std::pair<std::vector<ElementWithIndex>, std::vector<std::tuple<int, int, float>>> processBlocks(const std::vector<reco::PFBlock>& pfBlocks);
     void clearVariables();  // vaja defineerida src
     GlobalPoint getHitPosition(const DetId& id);
+    void associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements);
     // ----------member data ---------------------------
 
     edm::EDGetTokenT<std::vector<reco::GenParticle>> genParticles_;
