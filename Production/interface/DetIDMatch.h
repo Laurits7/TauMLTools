@@ -35,16 +35,7 @@ public:
     typedef ROOT::Math::Transform3D::Point Point;
 
     DetIDMatcher();
-    DetIDMatcher(const DetIDMatcher&) = delete;
-    DetIDMatcher& operator=(const DetIDMatcher&) = delete;
-
-    edm::EDGetTokenT<std::vector<reco::GenParticle>> genParticles_;
-    edm::EDGetTokenT<edm::View<TrackingParticle>> trackingParticles_;
-    edm::EDGetTokenT<edm::View<CaloParticle>> caloParticles_;
-    edm::EDGetTokenT<edm::View<reco::Track>> tracks_;
-    edm::EDGetTokenT<std::vector<reco::PFBlock>> pfBlocks_;
-    edm::EDGetTokenT<std::vector<reco::PFCandidate>> pfCandidates_;
-    edm::EDGetTokenT<reco::RecoToSimCollection> tracks_recotosim_;
+    ~DetIDMatcher();
 
     std::vector<float> rechit_e_;
     std::vector<float> rechit_x_;
@@ -67,6 +58,14 @@ private:
     void clearVariables();
     GlobalPoint getHitPosition(const DetId& id);
     // ----------member data ---------------------------
+
+    edm::EDGetTokenT<std::vector<reco::GenParticle>> genParticles_;
+    edm::EDGetTokenT<edm::View<TrackingParticle>> trackingParticles_;
+    edm::EDGetTokenT<edm::View<CaloParticle>> caloParticles_;
+    edm::EDGetTokenT<edm::View<reco::Track>> tracks_;
+    edm::EDGetTokenT<std::vector<reco::PFBlock>> pfBlocks_;
+    edm::EDGetTokenT<std::vector<reco::PFCandidate>> pfCandidates_;
+    edm::EDGetTokenT<reco::RecoToSimCollection> tracks_recotosim_;
 }
 
 
