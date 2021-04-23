@@ -34,7 +34,7 @@
 #include "TauMLTools/Production/interface/MuonHitMatch.h"
 #include "TauMLTools/Production/interface/TauJet.h"
 
-#include "TauMLTools/Production/interface/DetIDMatch.h"
+// #include "TauMLTools/Production/interface/DetIDMatch.h" temporary
 
 namespace tau_analysis {
 
@@ -927,8 +927,6 @@ private:
         tauTuple().rechit_idx_element = matcher.rechit_idx_element_;
         tauTuple().rechit_detid = matcher.rechit_detid_;
         tauTuple().rechits_energy_all = matcher.rechits_energy_all;
-
-        cout << "Not ready" << endl;
     }
 
 private:
