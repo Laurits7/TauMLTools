@@ -269,7 +269,7 @@ private:
         auto genJets = hGenJets.isValid() ? hGenJets.product() : nullptr;
         auto genJetFlavourInfos = hGenJetFlavourInfos.isValid() ? hGenJetFlavourInfos.product() : nullptr;
 
-        FillBasedOnDetID(event);
+        FillBasedOnDetID(event, eventSetup);
 
         TauJetBuilder builder(builderSetup, *taus, *boostedTaus, *jets, *fatJets, *cands, *electrons, *muons,
                               *isoTracks, *lostTracks, genParticles, genJets, requireGenMatch,
