@@ -52,10 +52,10 @@ int get_index_triu_vector(int i, int j, int n) {
   return k;
 }
 
-pair<int, int> get_triu_vector_index(int k, int n) {
+std::pair<int, int> get_triu_vector_index(int k, int n) {
   int i = n - 2 - floor(sqrt(-8 * k + 4 * n * (n - 1) - 7) / 2.0 - 0.5);
   int j = k + i + 1 - n * (n - 1) / 2 + (n - i) * ((n - i) - 1) / 2;
-  return make_pair(i, j);
+  return std::make_pair(i, j);
 }
 
 std::pair<std::vector<ElementWithIndex>, std::vector<std::tuple<int, int, float>>> DetIDMatcher::processBlocks(

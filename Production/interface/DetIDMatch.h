@@ -105,7 +105,7 @@ public:
 
 // kuidas initsialiseerimine käib
 private:
-    std::pair<std::vector<ElementWithIndex>, std::vector<std::tuple<int, int, float>>> processBlocks(const std::vector<reco::PFBlock>& pfBlocks)
+    std::pair<std::vector<ElementWithIndex>, std::vector<std::tuple<int, int, float>>> processBlocks(const std::vector<reco::PFBlock>& pfBlocks);
     void clearVariables();  // vaja defineerida src
     GlobalPoint getHitPosition(const DetId& id);
     // ----------member data ---------------------------
