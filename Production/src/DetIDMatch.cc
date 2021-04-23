@@ -61,7 +61,7 @@ std::pair<int, int> get_triu_vector_index(int k, int n) {
 std::pair<std::vector<ElementWithIndex>, std::vector<std::tuple<int, int, float>>> DetIDMatcher::processBlocks(
     const std::vector<reco::PFBlock>& pfBlocks) {
   std::vector<ElementWithIndex> ret;
-  std::vector<tuple<int, int, float>> distances;
+  std::vector<std::tuple<int, int, float>> distances;
 
   //Collect all the elements
   int iblock = 0;
