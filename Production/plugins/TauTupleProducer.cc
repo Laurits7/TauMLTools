@@ -914,8 +914,8 @@ private:
         const auto& all_elements = all_elements_distances.first;
         const auto& all_distances = all_elements_distances.second;
 
-        DetIDMatcher matcher(all_elements);
-        matcher.associateClusterToSimCluster(all_elements)
+        DetIDMatcher matcher();
+        matcher.associateClusterToSimCluster(all_elements);
         tauTuple().rechit_x = matcher.rechit_x_;
         tauTuple().rechit_y = matcher.rechit_y_;
         tauTuple().rechit_z = matcher.rechit_z_;

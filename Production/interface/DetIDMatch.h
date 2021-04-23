@@ -34,7 +34,9 @@ class DetIDMatcher {
 public:
     typedef ROOT::Math::Transform3D::Point Point;
 
-    DetIDMatcher()
+    DetIDMatcher();
+    TauJetBuilder(const TauJetBuilder&) = delete;
+    TauJetBuilder& operator=(const TauJetBuilder&) = delete;
 
     std::vector<float> rechit_e_;
     std::vector<float> rechit_x_;
