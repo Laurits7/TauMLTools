@@ -50,7 +50,6 @@
 #include "MagneticField/Engine/interface/MagneticField.h"
 #include "MagneticField/Records/interface/IdealMagneticFieldRecord.h"
 #include "MagneticField/VolumeGeometry/interface/MagVolumeOutsideValidity.h"
-#include "RecoParticleFlow/PFProducer/interface/MLPFModel.h"
 
 #include "CommonTools/UtilAlgos/interface/TFileService.h"
 #include "FWCore/ServiceRegistry/interface/Service.h"
