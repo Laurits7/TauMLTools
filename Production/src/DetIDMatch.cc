@@ -29,7 +29,6 @@ double detid_compare(
 
 GlobalPoint DetIDMatcher::getHitPosition(const DetId& id) {
   GlobalPoint ret;
-
   bool present = false;
   if (((id.det() == DetId::Ecal &&
         (id.subdetId() == EcalBarrel || id.subdetId() == EcalEndcap || id.subdetId() == EcalPreshower)) ||
@@ -91,10 +90,13 @@ std::pair<std::vector<ElementWithIndex>, std::vector<std::tuple<int, int, float>
 }  //processBlocks
 
 
+void DetIDMatcher::DetIDMatcher(){
+    pfBlocks_ = consumes<std::vector<reco::PFBlock>>(edm::InputTag("particleFlowBlock"));
+}
+
+
 
 void DetIDMatcher::fill(const edm::Event& iEvent, const edm::EventSetup& iSetup){
-
-    pfBlocks_ = consumes<std::vector<reco::PFBlock>>(edm::InputTag("particleFlowBlock"));
     edm::Handle<std::vector<reco::PFBlock>> pfBlocksHandle;
     iEvent.getByToken(pfBlocks_, pfBlocksHandle);
     std::vector<reco::PFBlock> pfBlocks = *pfBlocksHandle;
