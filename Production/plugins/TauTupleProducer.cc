@@ -906,7 +906,7 @@ private:
 
 
         DetIDMatcher matcher();
-        matcher.fill(iEvent, iSetup)
+        matcher.fill(iEvent, iSetup);
         tauTuple().rechit_x = matcher.rechit_x_;
         tauTuple().rechit_y = matcher.rechit_y_;
         tauTuple().rechit_z = matcher.rechit_z_;
