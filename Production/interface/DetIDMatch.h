@@ -11,6 +11,16 @@
 #include "DataFormats/ParticleFlowReco/interface/PFBlockElementBrem.h"
 #include "DataFormats/ParticleFlowReco/interface/PFBlockElementCluster.h"
 
+#include "DataFormats/HcalDetId/interface/HcalDetId.h"
+#include "DataFormats/EcalDetId/interface/EcalSubdetector.h"
+#include "Geometry/HcalTowerAlgo/interface/HcalGeometry.h"
+#include "SimDataFormats/CaloAnalysis/interface/CaloParticle.h"
+#include "SimDataFormats/CaloAnalysis/interface/SimCluster.h"
+
+#include "DataFormats/HcalRecHit/interface/HcalRecHitCollections.h"
+#include "Geometry/HcalCommonData/interface/HcalHitRelabeller.h"
+#include "DataFormats/HcalDetId/interface/HcalDetId.h"
+
 #include "DataFormats/ParticleFlowReco/interface/PFCluster.h"
 #include "DataFormats/VertexReco/interface/Vertex.h"
 #include "DataFormats/RecoCandidate/interface/TrackAssociation.h"
