@@ -67,6 +67,7 @@
 
 namespace tau_analysis {
 
+template<typename T>
 
 class ElementWithIndex {
 public:
