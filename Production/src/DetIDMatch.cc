@@ -99,6 +99,10 @@ void DetIDMatcher::fill(const edm::Event& iEvent, const edm::EventSetup& iSetup)
     iEvent.getByToken(pfBlocks_, pfBlocksHandle);
     std::vector<reco::PFBlock> pfBlocks = *pfBlocksHandle;
 
+    edm::Handle<edm::View<CaloParticle>> caloParticlesHandle;
+    iEvent.getByToken(caloParticles_, caloParticlesHandle);
+    const edm::View<CaloParticle>& caloParticles = *caloParticlesHandle;
+
     //Collect all clusters, tracks and superclusters
     const auto& all_elements_distances = processBlocks(pfBlocks);
     const auto& all_elements = all_elements_distances.first;
@@ -109,7 +113,7 @@ void DetIDMatcher::fill(const edm::Event& iEvent, const edm::EventSetup& iSetup)
         const auto& cp = caloParticles.at(ncaloparticle);
         edm::RefToBase<CaloParticle> cpref(caloParticlesHandle, ncaloparticle);
         for (const auto& simcluster : cp.simClusters()) {
-            map<uint64_t, double> detid_energy;
+            std::map<uint64_t, double> detid_energy;
             for (const auto& hf : simcluster->hits_and_fractions()) {
             DetId id(hf.first);
             if (id.det() == DetId::Hcal || id.det() == DetId::Ecal) {
