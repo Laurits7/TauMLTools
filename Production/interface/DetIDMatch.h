@@ -36,24 +36,24 @@ public:
 
     DetIDMatcher()
 
-    vector<float> rechit_e_;
-    vector<float> rechit_x_;
-    vector<float> rechit_y_;
-    vector<float> rechit_z_;
-    vector<float> rechit_det_;
-    vector<float> rechit_subdet_;
-    vector<float> rechit_eta_;
-    vector<float> rechit_phi_;
-    vector<int> rechit_idx_element_;
-    vector<uint64_t> rechit_detid_;
+    std::vector<float> rechit_e_;
+    std::vector<float> rechit_x_;
+    std::vector<float> rechit_y_;
+    std::vector<float> rechit_z_;
+    std::vector<float> rechit_det_;
+    std::vector<float> rechit_subdet_;
+    std::vector<float> rechit_eta_;
+    std::vector<float> rechit_phi_;
+    std::vector<int> rechit_idx_element_;
+    std::vector<uint64_t> rechit_detid_;
 
 
-    vector<pair<int, int>> simcluster_to_element;
-    vector<float> simcluster_to_element_cmp;
+    std::vector<pair<int, int>> simcluster_to_element;
+    std::vector<float> simcluster_to_element_cmp;
 
 // kuidas initsialiseerimine käib
 private:
-    void associateClusterToSimCluster(const vector<ElementWithIndex>& all_elements);
+    void associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements);
     void clearVariables();
     GlobalPoint getHitPosition(const DetId& id);
     // ----------member data ---------------------------
