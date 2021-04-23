@@ -28,6 +28,14 @@
 #include "DataFormats/DetId/interface/DetId.h"
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 
+
+#include "FWCore/Framework/interface/Frameworkfwd.h"
+#include "FWCore/Framework/interface/one/EDAnalyzer.h"
+
+#include "FWCore/Framework/interface/ESHandle.h"
+#include "FWCore/Framework/interface/Event.h"
+#include "FWCore/Framework/interface/MakerMacros.h"
+
 // #include "DataFormats/Math/interface/deltaPhi.h"
 #include "Math/Transform3D.h" // For the 'Point'
 
