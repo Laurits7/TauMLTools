@@ -90,7 +90,7 @@ std::pair<std::vector<ElementWithIndex>, std::vector<std::tuple<int, int, float>
 }  //processBlocks
 
 
-void DetIDMatcher::DetIDMatcher(){
+DetIDMatcher::DetIDMatcher(){
     pfBlocks_ = consumes<std::vector<reco::PFBlock>>(edm::InputTag("particleFlowBlock"));
 }
 
