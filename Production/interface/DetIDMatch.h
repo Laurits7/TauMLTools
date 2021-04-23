@@ -121,7 +121,7 @@ private:
 
     edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometryToken_;
 
-    vector<std::map<uint64_t, double>> simcluster_detids_;
+    std::vector<std::map<uint64_t, double>> simcluster_detids_;
 };
 
 
