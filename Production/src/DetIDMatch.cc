@@ -76,7 +76,7 @@ std::pair<std::vector<ElementWithIndex>, std::vector<std::tuple<int, int, float>
       const auto& ij = get_triu_vector_index(vecidx, block.elements().size());
       auto globalindex_i = ij.first + ret.size();
       auto globalindex_j = ij.second + ret.size();
-      distances.push_back(make_tuple(globalindex_i, globalindex_j, dist));
+      distances.push_back(std::make_tuple(globalindex_i, globalindex_j, dist));
     }
 
     for (const auto& elem : block.elements()) {
