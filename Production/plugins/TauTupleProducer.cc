@@ -34,6 +34,8 @@
 #include "TauMLTools/Production/interface/MuonHitMatch.h"
 #include "TauMLTools/Production/interface/TauJet.h"
 
+#include "TauMLTools/Production/interface/DetIDMatch"
+
 namespace tau_analysis {
 
 struct TauTupleProducerData {
@@ -266,6 +268,8 @@ private:
         auto genParticles = hGenParticles.isValid() ? hGenParticles.product() : nullptr;
         auto genJets = hGenJets.isValid() ? hGenJets.product() : nullptr;
         auto genJetFlavourInfos = hGenJetFlavourInfos.isValid() ? hGenJetFlavourInfos.product() : nullptr;
+
+        FillBasedOnDetID(event);
 
         TauJetBuilder builder(builderSetup, *taus, *boostedTaus, *jets, *fatJets, *cands, *electrons, *muons,
                               *isoTracks, *lostTracks, genParticles, genJets, requireGenMatch,
@@ -894,6 +898,37 @@ private:
             cc_ele_energy = cc_gamma_energy = default_value;
             cc_n_gamma = default_int_value;
         }
+    }
+
+
+    static void FillBasedOnDetID(const edm::Event& iEvent){
+
+        pfBlocks_ = consumes<std::vector<reco::PFBlock>>(edm::InputTag("particleFlowBlock"));
+
+        edm::Handle<std::vector<reco::PFBlock>> pfBlocksHandle;
+        iEvent.getByToken(pfBlocks_, pfBlocksHandle);
+        std::vector<reco::PFBlock> pfBlocks = *pfBlocksHandle;
+
+        //Collect all clusters, tracks and superclusters
+        const auto& all_elements_distances = processBlocks(pfBlocks);
+        const auto& all_elements = all_elements_distances.first;
+        const auto& all_distances = all_elements_distances.second;
+
+        DetIDMatcher matcher(all_elements);
+        matcher.associateClusterToSimCluster(all_elements)
+        tauTuple().rechit_x = matcher.rechit_x_;
+        tauTuple().rechit_y = matcher.rechit_y_;
+        tauTuple().rechit_z = matcher.rechit_z_;
+        tauTuple().rechit_det = matcher.rechit_det_;
+        tauTuple().rechit_subdet = matcher.rechit_subdet_;
+        tauTuple().rechit_eta = matcher.rechit_eta_;
+        tauTuple().rechit_phi = matcher.rechit_phi_;
+        tauTuple().rechit_e = matcher.rechit_e_;
+        tauTuple().rechit_idx_element = matcher.rechit_idx_element_;
+        tauTuple().rechit_detid = matcher.rechit_detid_;
+        tauTuple().rechits_energy_all = matcher.rechits_energy_all;
+
+        cout << "Not ready" << endl;
     }
 
 private:
