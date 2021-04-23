@@ -26,6 +26,7 @@
 #include "DataFormats/RecoCandidate/interface/TrackAssociation.h"
 
 #include "DataFormats/DetId/interface/DetId.h"
+#include "FWCore/ParameterSet/interface/ParameterSet.h"
 
 // #include "DataFormats/Math/interface/deltaPhi.h"
 #include "Math/Transform3D.h" // For the 'Point'
