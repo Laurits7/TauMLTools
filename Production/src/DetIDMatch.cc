@@ -115,16 +115,16 @@ void DetIDMatcher::fill(const edm::Event& iEvent, const edm::EventSetup& iSetup)
         for (const auto& simcluster : cp.simClusters()) {
             std::map<uint64_t, double> detid_energy;
             for (const auto& hf : simcluster->hits_and_fractions()) {
-            DetId id(hf.first);
-            if (id.det() == DetId::Hcal || id.det() == DetId::Ecal) {
-              detid_energy[id.rawId()] += hf.second;
+                DetId id(hf.first);
+                if (id.det() == DetId::Hcal || id.det() == DetId::Ecal) {
+                  detid_energy[id.rawId()] += hf.second;
+                }
             }
+            simcluster_detids_.push_back(detid_energy);
         }
-        simcluster_detids_.push_back(detid_energy);
+        associateClusterToSimCluster(all_elements);
     }
-    associateClusterToSimCluster(all_elements);
-};
-
+}
 
 // vt indentation
 void DetIDMatcher::associateClusterToSimCluster(
