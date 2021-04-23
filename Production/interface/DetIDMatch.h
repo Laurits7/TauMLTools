@@ -76,7 +76,7 @@ private:
     edm::EDGetTokenT<std::vector<reco::PFBlock>> pfBlocks_;
     edm::EDGetTokenT<std::vector<reco::PFCandidate>> pfCandidates_;
     edm::EDGetTokenT<reco::RecoToSimCollection> tracks_recotosim_;
-}
+};
 
 
 
