@@ -34,7 +34,7 @@
 #include "TauMLTools/Production/interface/MuonHitMatch.h"
 #include "TauMLTools/Production/interface/TauJet.h"
 
-#include "TauMLTools/Production/interface/DetIDMatch"
+#include "TauMLTools/Production/interface/DetIDMatch.h"
 
 namespace tau_analysis {
 
