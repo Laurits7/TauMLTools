@@ -7,16 +7,6 @@
 namespace tau_analysis {
 
 
-class ElementWithIndex {
-public:
-  const reco::PFBlockElement& orig;
-  size_t idx_block;
-  size_t idx_elem;
-  ElementWithIndex(const reco::PFBlockElement& _orig, size_t _idx_block, size_t _idx_elem)
-      : orig(_orig), idx_block(_idx_block), idx_elem(_idx_elem){};
-};
-
-
 double detid_compare(
     const std::map<uint64_t,
     double>& rechits,
