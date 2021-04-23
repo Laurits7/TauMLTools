@@ -47,8 +47,42 @@ GlobalPoint DetIDMatcher::getHitPosition(const DetId& id) {
 
 
 
+void fill(const edm::Event& iEvent, const edm::EventSetup& iSetup){
+
+    pfBlocks_ = consumes<std::vector<reco::PFBlock>>(edm::InputTag("particleFlowBlock"));
+    edm::Handle<std::vector<reco::PFBlock>> pfBlocksHandle;
+    iEvent.getByToken(pfBlocks_, pfBlocksHandle);
+    std::vector<reco::PFBlock> pfBlocks = *pfBlocksHandle;
+
+    //Collect all clusters, tracks and superclusters
+    const auto& all_elements_distances = processBlocks(pfBlocks);
+    const auto& all_elements = all_elements_distances.first;
+    const auto& all_distances = all_elements_distances.second;
+    auto& pG = iSetup.getData(geometryToken_);
+    geom = (CaloGeometry*)&pG;
+    for (unsigned long ncaloparticle = 0; ncaloparticle < caloParticles.size();ncaloparticle++) {
+        const auto& cp = caloParticles.at(ncaloparticle);
+        edm::RefToBase<CaloParticle> cpref(caloParticlesHandle, ncaloparticle);
+        for (const auto& simcluster : cp.simClusters()) {
+            map<uint64_t, double> detid_energy;
+            for (const auto& hf : simcluster->hits_and_fractions()) {
+            DetId id(hf.first);
+            if (id.det() == DetId::Hcal || id.det() == DetId::Ecal) {
+              detid_energy[id.rawId()] += hf.second;
+            }
+        }
+        simcluster_detids_.push_back(detid_energy);
+    }
+    associateClusterToSimCluster(all_elements);
+
+};
+
+
 // vt indentation
-void DetIDMatcher::associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements) {
+void DetIDMatcher::associateClusterToSimCluster(
+    const std::vector<ElementWithIndex>& all_elements
+){
+
 
   std::vector<std::map<uint64_t, double>> detids_elements;
   std::map<uint64_t, double> rechits_energy_all;

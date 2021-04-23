@@ -901,21 +901,12 @@ private:
     }
 
 
-    static void FillBasedOnDetID(const edm::Event& iEvent){
+    static void FillBasedOnDetID(const edm::Event& iEvent, const edm::EventSetup& iSetup){
 
-        pfBlocks_ = consumes<std::vector<reco::PFBlock>>(edm::InputTag("particleFlowBlock"));
 
-        edm::Handle<std::vector<reco::PFBlock>> pfBlocksHandle;
-        iEvent.getByToken(pfBlocks_, pfBlocksHandle);
-        std::vector<reco::PFBlock> pfBlocks = *pfBlocksHandle;
-
-        //Collect all clusters, tracks and superclusters
-        const auto& all_elements_distances = processBlocks(pfBlocks);
-        const auto& all_elements = all_elements_distances.first;
-        const auto& all_distances = all_elements_distances.second;
 
         DetIDMatcher matcher();
-        matcher.associateClusterToSimCluster(all_elements);
+        matcher.associateClusterToSimCluster(all_elements, iSetup);
         tauTuple().rechit_x = matcher.rechit_x_;
         tauTuple().rechit_y = matcher.rechit_y_;
         tauTuple().rechit_z = matcher.rechit_z_;

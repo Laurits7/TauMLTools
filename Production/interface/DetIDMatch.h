@@ -79,13 +79,16 @@ public:
     std::vector<uint64_t> rechit_detid_;
 
 
+
+
+
     std::vector<std::pair<int, int>> simcluster_to_element;
     std::vector<float> simcluster_to_element_cmp;
 
 // kuidas initsialiseerimine käib
 private:
-    void associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements);
-    void clearVariables();
+    void fill(const edm::Event& iEvent, const edm::EventSetup& iSetup);
+    void clearVariables();  // vaja defineerida src
     GlobalPoint getHitPosition(const DetId& id);
     // ----------member data ---------------------------
 
@@ -96,6 +99,10 @@ private:
     edm::EDGetTokenT<std::vector<reco::PFBlock>> pfBlocks_;
     edm::EDGetTokenT<std::vector<reco::PFCandidate>> pfCandidates_;
     edm::EDGetTokenT<reco::RecoToSimCollection> tracks_recotosim_;
+
+    edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometryToken_;
+
+    vector<std::map<uint64_t, double>> simcluster_detids_;
 };
 
 
