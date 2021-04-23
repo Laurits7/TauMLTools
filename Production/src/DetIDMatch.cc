@@ -8,9 +8,9 @@ namespace tau_analysis {
 
 
 double detid_compare(
-    const map<uint64_t,
+    const std::map<uint64_t,
     double>& rechits,
-    const map<uint64_t,
+    const std::map<uint64_t,
     double>& simhits
 ){
   double ret = 0.0;
@@ -48,14 +48,14 @@ GlobalPoint DetIDMatcher::getHitPosition(const DetId& id) {
 
 
 // vt indentation
-void DetIDMatcher::associateClusterToSimCluster(const vector<ElementWithIndex>& all_elements) {
+void DetIDMatcher::associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements) {
 
-  vector<map<uint64_t, double>> detids_elements;
-  map<uint64_t, double> rechits_energy_all;
+  std::vector<std::map<uint64_t, double>> detids_elements;
+  std::map<uint64_t, double> rechits_energy_all;
 
   int idx_element = 0;
   for (const auto& elem : all_elements) {
-    map<uint64_t, double> detids;
+    std::map<uint64_t, double> detids;
     const auto& type = elem.orig.type();
 
     if (type == reco::PFBlockElement::ECAL || type == reco::PFBlockElement::HCAL || type == reco::PFBlockElement::PS1 ||
@@ -66,7 +66,7 @@ void DetIDMatcher::associateClusterToSimCluster(const vector<ElementWithIndex>& 
       const auto& cluster = *clref;
 
       //all rechits and the energy fractions in this cluster
-      const vector<reco::PFRecHitFraction>& rechit_fracs = cluster.recHitFractions();
+      const std::vector<reco::PFRecHitFraction>& rechit_fracs = cluster.recHitFractions();
       for (const auto& rh : rechit_fracs) {
         const reco::PFRecHit pfrh = *rh.recHitRef();
         if (detids.find(pfrh.detId()) != detids.end()) {
@@ -161,7 +161,7 @@ void DetIDMatcher::associateClusterToSimCluster(const vector<ElementWithIndex>& 
         //get the energy of the simcluster hits that matches detids of the rechits
         double cmp = detid_compare(detids, simcluster_detids);
         if (cmp > 0) {
-          simcluster_to_element.push_back(make_pair(isimcluster, ielement));
+          simcluster_to_element.push_back(std::make_pair(isimcluster, ielement));
           simcluster_to_element_cmp.push_back((float)cmp);
         }
         isimcluster += 1;
