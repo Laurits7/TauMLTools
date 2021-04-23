@@ -46,8 +46,53 @@ GlobalPoint DetIDMatcher::getHitPosition(const DetId& id) {
 }
 
 
+//https://stackoverflow.com/questions/27086195/linear-index-upper-triangular-matrix/27088560
+int get_index_triu_vector(int i, int j, int n) {
+  int k = (n * (n - 1) / 2) - (n - i) * ((n - i) - 1) / 2 + j - i - 1;
+  return k;
+}
 
-void fill(const edm::Event& iEvent, const edm::EventSetup& iSetup){
+pair<int, int> get_triu_vector_index(int k, int n) {
+  int i = n - 2 - floor(sqrt(-8 * k + 4 * n * (n - 1) - 7) / 2.0 - 0.5);
+  int j = k + i + 1 - n * (n - 1) / 2 + (n - i) * ((n - i) - 1) / 2;
+  return make_pair(i, j);
+}
+
+std::pair<std::vector<ElementWithIndex>, std::vector<std::tuple<int, int, float>>> DetIDMatcher::processBlocks(
+    const std::vector<reco::PFBlock>& pfBlocks) {
+  std::vector<ElementWithIndex> ret;
+  std::vector<tuple<int, int, float>> distances;
+
+  //Collect all the elements
+  int iblock = 0;
+  for (const auto& block : pfBlocks) {
+    int ielem = 0;
+    const auto& linkdata = block.linkData();
+
+    //create a list of global element indices with distances
+    for (const auto& link : linkdata) {
+      const auto vecidx = link.first;
+      const auto dist = link.second.distance;
+      const auto& ij = get_triu_vector_index(vecidx, block.elements().size());
+      auto globalindex_i = ij.first + ret.size();
+      auto globalindex_j = ij.second + ret.size();
+      distances.push_back(make_tuple(globalindex_i, globalindex_j, dist));
+    }
+
+    for (const auto& elem : block.elements()) {
+      ElementWithIndex elem_index(elem, iblock, ielem);
+      ret.push_back(elem_index);
+      ielem += 1;
+    }  //elements
+    iblock += 1;
+  }  //blocks
+  return std::make_pair(ret, distances);
+
+}  //processBlocks
+
+
+
+void DetIDMatcher::fill(const edm::Event& iEvent, const edm::EventSetup& iSetup){
 
     pfBlocks_ = consumes<std::vector<reco::PFBlock>>(edm::InputTag("particleFlowBlock"));
     edm::Handle<std::vector<reco::PFBlock>> pfBlocksHandle;
