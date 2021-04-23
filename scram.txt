@@ -1,0 +1,434 @@
+Reading cached build data
+>> Local Products Rules ..... started
+>> Local Products Rules ..... done
+------- copying files from src/TauMLTools/Training/scripts -------
+------- copying files from src/TauMLTools/Analysis/scripts -------
+------- copying files from src/TauMLTools/Production/scripts -------
+>> copied eval_perf.sh
+>> Entering Package TauMLTools/Core
+>> Creating project symlinks
+>> copied get_pred.sh
+>> copied prepare_TestingTuples.sh
+>> copied generate_samples.sh
+>> copied eval_perf_pub.sh
+>> copied runDeepTauTest.sh
+>> copied prepare_TrainingTuples.sh
+>> copied validation_tool.py
+>> copied run_all_test.ps1
+>> Entering Package TauMLTools/Training
+>> Entering Package TauMLTools/Production
+>> copied crab_cmd.py
+>> copied prepare_TauTuples.sh
+>> Entering Package RecoTauTag/RecoTau
+>> copied crab_submit.py
+>> Entering Package TauMLTools/Analysis
+>> copied move_crab_outputs.py
+>> copied crab_submit_file.py
+>> Leaving Package TauMLTools/Training
+>> Leaving Package TauMLTools/Core
+>> Package TauMLTools/Training built
+>> Package TauMLTools/Core built
+>> Compiling  /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc 
+>> Compiling edm plugin /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc 
+>> Leaving Package TauMLTools/Analysis
+>> Package TauMLTools/Analysis built
+In file included from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc:4:0:
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/interface/DetIDMatch.h:67:57: error: 'ElementWithIndex' was not declared in this scope
+     void associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements);
+                                                         ^~~~~~~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/interface/DetIDMatch.h:67:57: note: suggested alternative: 'TElementActionD'
+     void associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements);
+                                                         ^~~~~~~~~~~~~~~~
+                                                         TElementActionD
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/interface/DetIDMatch.h:67:73: error: template argument 1 is invalid
+     void associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements);
+                                                                         ^
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/interface/DetIDMatch.h:67:73: error: template argument 2 is invalid
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/interface/DetIDMatch.h:72:10: error: 'EDGetTokenT' in namespace 'edm' does not name a template type
+     edm::EDGetTokenT<std::vector<reco::GenParticle>> genParticles_;
+          ^~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/interface/DetIDMatch.h:73:10: error: 'EDGetTokenT' in namespace 'edm' does not name a template type
+     edm::EDGetTokenT<edm::View<TrackingParticle>> trackingParticles_;
+          ^~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/interface/DetIDMatch.h:74:10: error: 'EDGetTokenT' in namespace 'edm' does not name a template type
+     edm::EDGetTokenT<edm::View<CaloParticle>> caloParticles_;
+          ^~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/interface/DetIDMatch.h:75:10: error: 'EDGetTokenT' in namespace 'edm' does not name a template type
+     edm::EDGetTokenT<edm::View<reco::Track>> tracks_;
+          ^~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/interface/DetIDMatch.h:76:10: error: 'EDGetTokenT' in namespace 'edm' does not name a template type
+     edm::EDGetTokenT<std::vector<reco::PFBlock>> pfBlocks_;
+          ^~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/interface/DetIDMatch.h:77:10: error: 'EDGetTokenT' in namespace 'edm' does not name a template type
+     edm::EDGetTokenT<std::vector<reco::PFCandidate>> pfCandidates_;
+          ^~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/interface/DetIDMatch.h:78:10: error: 'EDGetTokenT' in namespace 'edm' does not name a template type
+     edm::EDGetTokenT<reco::RecoToSimCollection> tracks_recotosim_;
+          ^~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc: In member function 'GlobalPoint tau_analysis::DetIDMatcher::getHitPosition(const DetId&)':
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc:38:44: error: 'geom' was not declared in this scope
+     const CaloSubdetectorGeometry* geom_sd(geom->getSubdetectorGeometry(id.det(), id.subdetId()));
+                                            ^~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc:38:44: note: suggested alternative: 'feof'
+     const CaloSubdetectorGeometry* geom_sd(geom->getSubdetectorGeometry(id.det(), id.subdetId()));
+                                            ^~~~
+                                            feof
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc: At global scope:
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc:51:67: error: 'ElementWithIndex' was not declared in this scope
+ void DetIDMatcher::associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements) {
+                                                                   ^~~~~~~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc:51:67: note: suggested alternative: 'TElementActionD'
+ void DetIDMatcher::associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements) {
+                                                                   ^~~~~~~~~~~~~~~~
+                                                                   TElementActionD
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc:51:83: error: template argument 1 is invalid
+ void DetIDMatcher::associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements) {
+                                                                                   ^
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc:51:83: error: template argument 2 is invalid
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc: In member function 'void tau_analysis::DetIDMatcher::associateClusterToSimCluster(const int&)':
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc:57:27: error: 'begin' was not declared in this scope
+   for (const auto& elem : all_elements) {
+                           ^~~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc:57:27: note: suggested alternatives:
+In file included from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/string:51:0,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/stdexcept:39,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/array:39,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/ParticleFlowCandidate/interface/PFCandidate.h:13,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/interface/DetIDMatch.h:7,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc:4:
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/range_access.h:105:37: note:   'std::begin'
+   template<typename _Tp> const _Tp* begin(const valarray<_Tp>&);
+                                     ^~~~~
+In file included from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/boost/1.67.0-pafccj/include/boost/mpl/begin_end.hpp:17:0,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/FWCore/Framework/interface/DependentRecordImplementation.h:22,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/CondFormats/AlignmentRecord/interface/HcalAlignmentRcd.h:14,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/Geometry/HcalTowerAlgo/interface/HcalGeometry.h:11,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/interface/DetIDMatch.h:16,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc:4:
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/boost/1.67.0-pafccj/include/boost/mpl/begin_end_fwd.hpp:22:38: note:   'boost::mpl::begin'
+ template< typename Sequence > struct begin;
+                                      ^~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc:57:27: error: 'end' was not declared in this scope
+   for (const auto& elem : all_elements) {
+                           ^~~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc:57:27: note: suggested alternatives:
+In file included from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/string:51:0,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/stdexcept:39,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/array:39,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/ParticleFlowCandidate/interface/PFCandidate.h:13,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/interface/DetIDMatch.h:7,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc:4:
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/range_access.h:107:37: note:   'std::end'
+   template<typename _Tp> const _Tp* end(const valarray<_Tp>&);
+                                     ^~~
+In file included from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/boost/1.67.0-pafccj/include/boost/mpl/begin_end.hpp:17:0,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/FWCore/Framework/interface/DependentRecordImplementation.h:22,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/CondFormats/AlignmentRecord/interface/HcalAlignmentRcd.h:14,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/Geometry/HcalTowerAlgo/interface/HcalGeometry.h:11,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/interface/DetIDMatch.h:16,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc:4:
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/boost/1.67.0-pafccj/include/boost/mpl/begin_end_fwd.hpp:23:38: note:   'boost::mpl::end'
+ template< typename Sequence > struct end;
+                                      ^~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc:109:29: error: unable to deduce 'auto&&' from 'rechit_fracs'
+       for (const auto& rh : rechit_fracs) {
+                             ^~~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc:155:44: error: 'simcluster_detids_' was not declared in this scope
+       for (const auto& simcluster_detids : simcluster_detids_) {
+                                            ^~~~~~~~~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc:155:44: note: suggested alternative: 'simcluster_detids'
+       for (const auto& simcluster_detids : simcluster_detids_) {
+                                            ^~~~~~~~~~~~~~~~~~
+                                            simcluster_detids
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/src/DetIDMatch.cc:157:30: error: unable to deduce 'auto&&' from 'simcluster_detids'
+         for (const auto& c : simcluster_detids) {
+                              ^~~~~~~~~~~~~~~~~
+gmake: *** [config/SCRAM/GMake/Makefile.rules:1733: tmp/slc7_amd64_gcc700/src/TauMLTools/Production/src/TauMLToolsProduction/DetIDMatch.cc.o] Error 1
+gmake: *** Waiting for unfinished jobs....
+In file included from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:37:0:
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/interface/DetIDMatch.h:67:57: error: 'ElementWithIndex' was not declared in this scope
+     void associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements);
+                                                         ^~~~~~~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/interface/DetIDMatch.h:67:57: note: suggested alternative: 'TElementActionD'
+     void associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements);
+                                                         ^~~~~~~~~~~~~~~~
+                                                         TElementActionD
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/interface/DetIDMatch.h:67:73: error: template argument 1 is invalid
+     void associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements);
+                                                                         ^
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/interface/DetIDMatch.h:67:73: error: template argument 2 is invalid
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc: In static member function 'static void tau_analysis::TauTupleProducer::FillBasedOnDetID(const edm::Event&)':
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:906:9: error: 'pfBlocks_' was not declared in this scope
+         pfBlocks_ = consumes<std::vector<reco::PFBlock>>(edm::InputTag("particleFlowBlock"));
+         ^~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:906:92: error: cannot call member function 'edm::EDGetTokenT<T> edm::EDConsumerBase::consumes(const edm::InputTag&) [with ProductType = std::vector<reco::PFBlock>; edm::BranchType B = (edm::BranchType)0]' without object
+         pfBlocks_ = consumes<std::vector<reco::PFBlock>>(edm::InputTag("particleFlowBlock"));
+                                                                                            ^
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:913:46: error: 'processBlocks' was not declared in this scope
+         const auto& all_elements_distances = processBlocks(pfBlocks);
+                                              ^~~~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:913:46: note: suggested alternative: 'pfBlocks'
+         const auto& all_elements_distances = processBlocks(pfBlocks);
+                                              ^~~~~~~~~~~~~
+                                              pfBlocks
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:918:17: error: request for member 'associateClusterToSimCluster' in 'tau_analysis::matcher', which is of non-class type 'tau_analysis::DetIDMatcher()'
+         matcher.associateClusterToSimCluster(all_elements);
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:919:9: error: invalid use of member 'tau_analysis::TauTupleProducer::tauTuple' in static member function
+         tauTuple().rechit_x = matcher.rechit_x_;
+         ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:953:26: note: declared here
+     tau_tuple::TauTuple& tauTuple;
+                          ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:919:39: error: request for member 'rechit_x_' in 'tau_analysis::matcher', which is of non-class type 'tau_analysis::DetIDMatcher()'
+         tauTuple().rechit_x = matcher.rechit_x_;
+                                       ^~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:920:9: error: invalid use of member 'tau_analysis::TauTupleProducer::tauTuple' in static member function
+         tauTuple().rechit_y = matcher.rechit_y_;
+         ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:953:26: note: declared here
+     tau_tuple::TauTuple& tauTuple;
+                          ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:920:39: error: request for member 'rechit_y_' in 'tau_analysis::matcher', which is of non-class type 'tau_analysis::DetIDMatcher()'
+         tauTuple().rechit_y = matcher.rechit_y_;
+                                       ^~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:921:9: error: invalid use of member 'tau_analysis::TauTupleProducer::tauTuple' in static member function
+         tauTuple().rechit_z = matcher.rechit_z_;
+         ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:953:26: note: declared here
+     tau_tuple::TauTuple& tauTuple;
+                          ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:921:39: error: request for member 'rechit_z_' in 'tau_analysis::matcher', which is of non-class type 'tau_analysis::DetIDMatcher()'
+         tauTuple().rechit_z = matcher.rechit_z_;
+                                       ^~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:922:9: error: invalid use of member 'tau_analysis::TauTupleProducer::tauTuple' in static member function
+         tauTuple().rechit_det = matcher.rechit_det_;
+         ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:953:26: note: declared here
+     tau_tuple::TauTuple& tauTuple;
+                          ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:922:41: error: request for member 'rechit_det_' in 'tau_analysis::matcher', which is of non-class type 'tau_analysis::DetIDMatcher()'
+         tauTuple().rechit_det = matcher.rechit_det_;
+                                         ^~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:923:9: error: invalid use of member 'tau_analysis::TauTupleProducer::tauTuple' in static member function
+         tauTuple().rechit_subdet = matcher.rechit_subdet_;
+         ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:953:26: note: declared here
+     tau_tuple::TauTuple& tauTuple;
+                          ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:923:44: error: request for member 'rechit_subdet_' in 'tau_analysis::matcher', which is of non-class type 'tau_analysis::DetIDMatcher()'
+         tauTuple().rechit_subdet = matcher.rechit_subdet_;
+                                            ^~~~~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:924:9: error: invalid use of member 'tau_analysis::TauTupleProducer::tauTuple' in static member function
+         tauTuple().rechit_eta = matcher.rechit_eta_;
+         ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:953:26: note: declared here
+     tau_tuple::TauTuple& tauTuple;
+                          ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:924:41: error: request for member 'rechit_eta_' in 'tau_analysis::matcher', which is of non-class type 'tau_analysis::DetIDMatcher()'
+         tauTuple().rechit_eta = matcher.rechit_eta_;
+                                         ^~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:925:9: error: invalid use of member 'tau_analysis::TauTupleProducer::tauTuple' in static member function
+         tauTuple().rechit_phi = matcher.rechit_phi_;
+         ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:953:26: note: declared here
+     tau_tuple::TauTuple& tauTuple;
+                          ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:925:41: error: request for member 'rechit_phi_' in 'tau_analysis::matcher', which is of non-class type 'tau_analysis::DetIDMatcher()'
+         tauTuple().rechit_phi = matcher.rechit_phi_;
+                                         ^~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:926:9: error: invalid use of member 'tau_analysis::TauTupleProducer::tauTuple' in static member function
+         tauTuple().rechit_e = matcher.rechit_e_;
+         ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:953:26: note: declared here
+     tau_tuple::TauTuple& tauTuple;
+                          ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:926:39: error: request for member 'rechit_e_' in 'tau_analysis::matcher', which is of non-class type 'tau_analysis::DetIDMatcher()'
+         tauTuple().rechit_e = matcher.rechit_e_;
+                                       ^~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:927:9: error: invalid use of member 'tau_analysis::TauTupleProducer::tauTuple' in static member function
+         tauTuple().rechit_idx_element = matcher.rechit_idx_element_;
+         ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:953:26: note: declared here
+     tau_tuple::TauTuple& tauTuple;
+                          ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:927:49: error: request for member 'rechit_idx_element_' in 'tau_analysis::matcher', which is of non-class type 'tau_analysis::DetIDMatcher()'
+         tauTuple().rechit_idx_element = matcher.rechit_idx_element_;
+                                                 ^~~~~~~~~~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:928:9: error: invalid use of member 'tau_analysis::TauTupleProducer::tauTuple' in static member function
+         tauTuple().rechit_detid = matcher.rechit_detid_;
+         ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:953:26: note: declared here
+     tau_tuple::TauTuple& tauTuple;
+                          ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:928:43: error: request for member 'rechit_detid_' in 'tau_analysis::matcher', which is of non-class type 'tau_analysis::DetIDMatcher()'
+         tauTuple().rechit_detid = matcher.rechit_detid_;
+                                           ^~~~~~~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:929:9: error: invalid use of member 'tau_analysis::TauTupleProducer::tauTuple' in static member function
+         tauTuple().rechits_energy_all = matcher.rechits_energy_all;
+         ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:953:26: note: declared here
+     tau_tuple::TauTuple& tauTuple;
+                          ^~~~~~~~
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:929:49: error: request for member 'rechits_energy_all' in 'tau_analysis::matcher', which is of non-class type 'tau_analysis::DetIDMatcher()'
+         tauTuple().rechits_energy_all = matcher.rechits_energy_all;
+                                                 ^~~~~~~~~~~~~~~~~~
+In file included from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/vector:64:0,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/Provenance/interface/BranchIDList.h:14,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/Provenance/interface/ProvenanceFwd.h:35,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/FWCore/Framework/interface/Frameworkfwd.h:11,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/FWCore/Framework/interface/EDAnalyzer.h:4,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:6:
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h: In instantiation of 'std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>; std::vector<_Tp, _Alloc>::size_type = long unsigned int]':
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:327:19:   required from 'std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>]'
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:910:48:   required from here
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:671:50: error: invalid use of incomplete type 'class reco::PFBlock'
+       { return size_type(this->_M_impl._M_finish - this->_M_impl._M_start); }
+                          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/ParticleFlowCandidate/interface/PFCandidate.h:18:0,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/PatCandidates/interface/Electron.h:31,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:12:
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/ParticleFlowReco/interface/PFBlockFwd.h:11:9: note: forward declaration of 'class reco::PFBlock'
+   class PFBlock;
+         ^~~~~~~
+In file included from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/vector:64:0,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/Provenance/interface/BranchIDList.h:14,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/Provenance/interface/ProvenanceFwd.h:35,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/FWCore/Framework/interface/Frameworkfwd.h:11,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/FWCore/Framework/interface/EDAnalyzer.h:4,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:6:
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h: In instantiation of 'std::_Vector_base<_Tp, _Alloc>::~_Vector_base() [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>]':
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:328:61:   required from 'std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>]'
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:910:48:   required from here
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:163:9: error: invalid use of incomplete type 'class reco::PFBlock'
+       { _M_deallocate(this->_M_impl._M_start, this->_M_impl._M_end_of_storage
+                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         - this->_M_impl._M_start); }
+         ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/ParticleFlowCandidate/interface/PFCandidate.h:18:0,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/PatCandidates/interface/Electron.h:31,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:12:
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/ParticleFlowReco/interface/PFBlockFwd.h:11:9: note: forward declaration of 'class reco::PFBlock'
+   class PFBlock;
+         ^~~~~~~
+In file included from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/vector:64:0,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/Provenance/interface/BranchIDList.h:14,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/Provenance/interface/ProvenanceFwd.h:35,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/FWCore/Framework/interface/Frameworkfwd.h:11,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/FWCore/Framework/interface/EDAnalyzer.h:4,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:6:
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h: In instantiation of 'void std::_Vector_base<_Tp, _Alloc>::_M_create_storage(std::size_t) [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>; std::size_t = long unsigned int]':
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:138:26:   required from 'std::_Vector_base<_Tp, _Alloc>::_Vector_base(std::size_t, const allocator_type&) [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>; std::size_t = long unsigned int; std::_Vector_base<_Tp, _Alloc>::allocator_type = std::allocator<reco::PFBlock>]'
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:328:61:   required from 'std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>]'
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:910:48:   required from here
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:189:59: error: invalid use of incomplete type 'class reco::PFBlock'
+  this->_M_impl._M_end_of_storage = this->_M_impl._M_start + __n;
+                                    ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+In file included from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/ParticleFlowCandidate/interface/PFCandidate.h:18:0,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/PatCandidates/interface/Electron.h:31,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:12:
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/ParticleFlowReco/interface/PFBlockFwd.h:11:9: note: forward declaration of 'class reco::PFBlock'
+   class PFBlock;
+         ^~~~~~~
+In file included from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/memory:65:0,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/Common/interface/EDProductfwd.h:9,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/FWCore/Framework/interface/Frameworkfwd.h:10,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/FWCore/Framework/interface/EDAnalyzer.h:4,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:6:
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_uninitialized.h: In instantiation of '_ForwardIterator std::uninitialized_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = __gnu_cxx::__normal_iterator<const reco::PFBlock*, std::vector<reco::PFBlock> >; _ForwardIterator = reco::PFBlock*]':
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_uninitialized.h:289:37:   required from '_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, std::allocator<_Tp>&) [with _InputIterator = __gnu_cxx::__normal_iterator<const reco::PFBlock*, std::vector<reco::PFBlock> >; _ForwardIterator = reco::PFBlock*; _Tp = reco::PFBlock]'
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:331:31:   required from 'std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>]'
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:910:48:   required from here
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_uninitialized.h:132:12: error: invalid use of incomplete type 'std::__iterator_traits<__gnu_cxx::__normal_iterator<const reco::PFBlock*, std::vector<reco::PFBlock> >, void>::value_type {aka class reco::PFBlock}'
+            && __is_trivial(_ValueType2)
+In file included from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/ParticleFlowCandidate/interface/PFCandidate.h:18:0,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/PatCandidates/interface/Electron.h:31,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:12:
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/ParticleFlowReco/interface/PFBlockFwd.h:11:9: note: forward declaration of 'std::__iterator_traits<__gnu_cxx::__normal_iterator<const reco::PFBlock*, std::vector<reco::PFBlock> >, void>::value_type {aka class reco::PFBlock}'
+   class PFBlock;
+         ^~~~~~~
+In file included from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/memory:65:0,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/Common/interface/EDProductfwd.h:9,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/FWCore/Framework/interface/Frameworkfwd.h:10,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/FWCore/Framework/interface/EDAnalyzer.h:4,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:6:
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_uninitialized.h:132:12: error: invalid use of incomplete type 'std::iterator_traits<reco::PFBlock*>::value_type {aka class reco::PFBlock}'
+            && __is_trivial(_ValueType2)
+In file included from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/ParticleFlowCandidate/interface/PFCandidate.h:18:0,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/PatCandidates/interface/Electron.h:31,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:12:
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/ParticleFlowReco/interface/PFBlockFwd.h:11:9: note: forward declaration of 'std::iterator_traits<reco::PFBlock*>::value_type {aka class reco::PFBlock}'
+   class PFBlock;
+         ^~~~~~~
+In file included from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/memory:64:0,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/Common/interface/EDProductfwd.h:9,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/FWCore/Framework/interface/Frameworkfwd.h:10,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/FWCore/Framework/interface/EDAnalyzer.h:4,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:6:
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_construct.h: In instantiation of 'void std::_Destroy(_ForwardIterator, _ForwardIterator) [with _ForwardIterator = reco::PFBlock*]':
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_construct.h:206:15:   required from 'void std::_Destroy(_ForwardIterator, _ForwardIterator, std::allocator<_T2>&) [with _ForwardIterator = reco::PFBlock*; _Tp = reco::PFBlock]'
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:434:22:   required from 'std::vector<_Tp, _Alloc>::~vector() [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>]'
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:910:48:   required from here
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_construct.h:133:7: error: static assertion failed: value type is destructible
+       static_assert(is_destructible<_Value_type>::value,
+       ^~~~~~~~~~~~~
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_construct.h:137:11: error: invalid use of incomplete type 'std::iterator_traits<reco::PFBlock*>::value_type {aka class reco::PFBlock}'
+       std::_Destroy_aux<__has_trivial_destructor(_Value_type)>::
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  __destroy(__first, __last);
+  ~~~~~~~~~^~~~~~~~~~~~~~~~~
+In file included from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/ParticleFlowCandidate/interface/PFCandidate.h:18:0,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/PatCandidates/interface/Electron.h:31,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:12:
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/ParticleFlowReco/interface/PFBlockFwd.h:11:9: note: forward declaration of 'std::iterator_traits<reco::PFBlock*>::value_type {aka class reco::PFBlock}'
+   class PFBlock;
+         ^~~~~~~
+In file included from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/x86_64-unknown-linux-gnu/bits/c++allocator.h:33:0,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/allocator.h:46,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/memory:63,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/DataFormats/Common/interface/EDProductfwd.h:9,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/FWCore/Framework/interface/Frameworkfwd.h:10,
+                 from /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_6_20/src/FWCore/Framework/interface/EDAnalyzer.h:4,
+                 from /afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:6:
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/ext/new_allocator.h: In instantiation of 'void __gnu_cxx::new_allocator<_Tp>::deallocate(__gnu_cxx::new_allocator<_Tp>::pointer, __gnu_cxx::new_allocator<_Tp>::size_type) [with _Tp = reco::PFBlock; __gnu_cxx::new_allocator<_Tp>::pointer = reco::PFBlock*; __gnu_cxx::new_allocator<_Tp>::size_type = long unsigned int]':
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/alloc_traits.h:462:9:   required from 'static void std::allocator_traits<std::allocator<_Tp1> >::deallocate(std::allocator_traits<std::allocator<_Tp1> >::allocator_type&, std::allocator_traits<std::allocator<_Tp1> >::pointer, std::allocator_traits<std::allocator<_Tp1> >::size_type) [with _Tp = reco::PFBlock; std::allocator_traits<std::allocator<_Tp1> >::allocator_type = std::allocator<reco::PFBlock>; std::allocator_traits<std::allocator<_Tp1> >::pointer = reco::PFBlock*; std::allocator_traits<std::allocator<_Tp1> >::size_type = long unsigned int]'
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:180:19:   required from 'void std::_Vector_base<_Tp, _Alloc>::_M_deallocate(std::_Vector_base<_Tp, _Alloc>::pointer, std::size_t) [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>; std::_Vector_base<_Tp, _Alloc>::pointer = reco::PFBlock*; std::size_t = long unsigned int]'
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:162:22:   required from 'std::_Vector_base<_Tp, _Alloc>::~_Vector_base() [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>]'
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:328:61:   required from 'std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>]'
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:910:48:   required from here
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/ext/new_allocator.h:119:19: error: invalid application of '__alignof__' to incomplete type 'reco::PFBlock'
+  if (alignof(_Tp) > __STDCPP_DEFAULT_NEW_ALIGNMENT__)
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/ext/new_allocator.h:121:34: error: invalid application of '__alignof__' to incomplete type 'reco::PFBlock'
+      ::operator delete(__p, std::align_val_t(alignof(_Tp)));
+                                  ^~~~~~~~~~~~~~~~~~~~~~~~~
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/ext/new_allocator.h: In instantiation of '_Tp* __gnu_cxx::new_allocator<_Tp>::allocate(__gnu_cxx::new_allocator<_Tp>::size_type, const void*) [with _Tp = reco::PFBlock; __gnu_cxx::new_allocator<_Tp>::pointer = reco::PFBlock*; __gnu_cxx::new_allocator<_Tp>::size_type = long unsigned int]':
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/alloc_traits.h:436:32:   required from 'static _Tp* std::allocator_traits<std::allocator<_Tp1> >::allocate(std::allocator_traits<std::allocator<_Tp1> >::allocator_type&, std::allocator_traits<std::allocator<_Tp1> >::size_type) [with _Tp = reco::PFBlock; std::allocator_traits<std::allocator<_Tp1> >::pointer = reco::PFBlock*; std::allocator_traits<std::allocator<_Tp1> >::allocator_type = std::allocator<reco::PFBlock>; std::allocator_traits<std::allocator<_Tp1> >::size_type = long unsigned int]'
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:172:33:   required from 'std::_Vector_base<_Tp, _Alloc>::pointer std::_Vector_base<_Tp, _Alloc>::_M_allocate(std::size_t) [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>; std::_Vector_base<_Tp, _Alloc>::pointer = reco::PFBlock*; std::size_t = long unsigned int]'
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:187:33:   required from 'void std::_Vector_base<_Tp, _Alloc>::_M_create_storage(std::size_t) [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>; std::size_t = long unsigned int]'
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:138:26:   required from 'std::_Vector_base<_Tp, _Alloc>::_Vector_base(std::size_t, const allocator_type&) [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>; std::size_t = long unsigned int; std::_Vector_base<_Tp, _Alloc>::allocator_type = std::allocator<reco::PFBlock>]'
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:328:61:   required from 'std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>]'
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:910:48:   required from here
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/ext/new_allocator.h:105:19: error: invalid application of '__alignof__' to incomplete type 'reco::PFBlock'
+  if (alignof(_Tp) > __STDCPP_DEFAULT_NEW_ALIGNMENT__)
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/ext/new_allocator.h:107:35: error: invalid application of '__alignof__' to incomplete type 'reco::PFBlock'
+      std::align_val_t __al = std::align_val_t(alignof(_Tp));
+                                   ^~~~~~~~~~~~~~~~~~~~~~~~~
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/ext/new_allocator.h:108:58: error: invalid application of 'sizeof' to incomplete type 'reco::PFBlock'
+      return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp), __al));
+                                                          ^
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/ext/new_allocator.h:111:54: error: invalid application of 'sizeof' to incomplete type 'reco::PFBlock'
+  return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
+                                                      ^
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/ext/new_allocator.h: In instantiation of '__gnu_cxx::new_allocator<_Tp>::size_type __gnu_cxx::new_allocator<_Tp>::max_size() const [with _Tp = reco::PFBlock; __gnu_cxx::new_allocator<_Tp>::size_type = long unsigned int]':
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/ext/new_allocator.h:101:18:   required from '_Tp* __gnu_cxx::new_allocator<_Tp>::allocate(__gnu_cxx::new_allocator<_Tp>::size_type, const void*) [with _Tp = reco::PFBlock; __gnu_cxx::new_allocator<_Tp>::pointer = reco::PFBlock*; __gnu_cxx::new_allocator<_Tp>::size_type = long unsigned int]'
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/alloc_traits.h:436:32:   required from 'static _Tp* std::allocator_traits<std::allocator<_Tp1> >::allocate(std::allocator_traits<std::allocator<_Tp1> >::allocator_type&, std::allocator_traits<std::allocator<_Tp1> >::size_type) [with _Tp = reco::PFBlock; std::allocator_traits<std::allocator<_Tp1> >::pointer = reco::PFBlock*; std::allocator_traits<std::allocator<_Tp1> >::allocator_type = std::allocator<reco::PFBlock>; std::allocator_traits<std::allocator<_Tp1> >::size_type = long unsigned int]'
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:172:33:   required from 'std::_Vector_base<_Tp, _Alloc>::pointer std::_Vector_base<_Tp, _Alloc>::_M_allocate(std::size_t) [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>; std::_Vector_base<_Tp, _Alloc>::pointer = reco::PFBlock*; std::size_t = long unsigned int]'
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:187:33:   required from 'void std::_Vector_base<_Tp, _Alloc>::_M_create_storage(std::size_t) [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>; std::size_t = long unsigned int]'
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:138:26:   required from 'std::_Vector_base<_Tp, _Alloc>::_Vector_base(std::size_t, const allocator_type&) [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>; std::size_t = long unsigned int; std::_Vector_base<_Tp, _Alloc>::allocator_type = std::allocator<reco::PFBlock>]'
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/bits/stl_vector.h:328:61:   required from 'std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = reco::PFBlock; _Alloc = std::allocator<reco::PFBlock>]'
+/afs/cern.ch/work/l/ltani/CMSSW_10_6_20/src/TauMLTools/Production/plugins/TauTupleProducer.cc:910:48:   required from here
+/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-pafccj/include/c++/7.4.1/ext/new_allocator.h:130:35: error: invalid application of 'sizeof' to incomplete type 'reco::PFBlock'
+       { return size_t(-1) / sizeof(_Tp); }
+                                   ^
+gmake: *** [config/SCRAM/GMake/Makefile.rules:1733: tmp/slc7_amd64_gcc700/src/TauMLTools/Production/plugins/TauMLToolsProductionAuto/TauTupleProducer.cc.o] Error 1
+gmake: *** [There are compilation/build errors. Please see the detail log above.] Error 2
