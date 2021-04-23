@@ -38,6 +38,14 @@ public:
     DetIDMatcher(const DetIDMatcher&) = delete;
     DetIDMatcher& operator=(const DetIDMatcher&) = delete;
 
+    edm::EDGetTokenT<std::vector<reco::GenParticle>> genParticles_;
+    edm::EDGetTokenT<edm::View<TrackingParticle>> trackingParticles_;
+    edm::EDGetTokenT<edm::View<CaloParticle>> caloParticles_;
+    edm::EDGetTokenT<edm::View<reco::Track>> tracks_;
+    edm::EDGetTokenT<std::vector<reco::PFBlock>> pfBlocks_;
+    edm::EDGetTokenT<std::vector<reco::PFCandidate>> pfCandidates_;
+    edm::EDGetTokenT<reco::RecoToSimCollection> tracks_recotosim_;
+
     std::vector<float> rechit_e_;
     std::vector<float> rechit_x_;
     std::vector<float> rechit_y_;
@@ -50,7 +58,7 @@ public:
     std::vector<uint64_t> rechit_detid_;
 
 
-    std::vector<pair<int, int>> simcluster_to_element;
+    std::vector<std::pair<int, int>> simcluster_to_element;
     std::vector<float> simcluster_to_element_cmp;
 
 // kuidas initsialiseerimine käib
@@ -59,14 +67,6 @@ private:
     void clearVariables();
     GlobalPoint getHitPosition(const DetId& id);
     // ----------member data ---------------------------
-
-    edm::EDGetTokenT<std::vector<reco::GenParticle>> genParticles_;
-    edm::EDGetTokenT<edm::View<TrackingParticle>> trackingParticles_;
-    edm::EDGetTokenT<edm::View<CaloParticle>> caloParticles_;
-    edm::EDGetTokenT<edm::View<reco::Track>> tracks_;
-    edm::EDGetTokenT<std::vector<reco::PFBlock>> pfBlocks_;
-    edm::EDGetTokenT<std::vector<reco::PFCandidate>> pfCandidates_;
-    edm::EDGetTokenT<reco::RecoToSimCollection> tracks_recotosim_;
 }
 
 
