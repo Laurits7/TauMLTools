@@ -84,8 +84,8 @@ public:
     typedef ROOT::Math::Transform3D::Point Point;
 
     DetIDMatcher();
-    explicit DetIDMatcher(const edm::ParameterSet&);
-    ~DetIDMatcher() override;
+    // explicit DetIDMatcher(const edm::ParameterSet&);
+    ~DetIDMatcher();
 
     std::vector<float> rechit_e_;
     std::vector<float> rechit_x_;
