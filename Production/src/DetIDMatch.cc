@@ -102,7 +102,6 @@ void DetIDMatcher::fill(const edm::Event& iEvent, const edm::EventSetup& iSetup)
     //Collect all clusters, tracks and superclusters
     const auto& all_elements_distances = processBlocks(pfBlocks);
     const auto& all_elements = all_elements_distances.first;
-    const auto& all_distances = all_elements_distances.second;
     auto& pG = iSetup.getData(geometryToken_);
     geom = (CaloGeometry*)&pG;
     for (unsigned long ncaloparticle = 0; ncaloparticle < caloParticles.size();ncaloparticle++) {
@@ -249,7 +248,7 @@ void DetIDMatcher::associateClusterToSimCluster(
   }  //rechit clusters
 }
 
-void PFAnalysis::clearVariables() {
+void DetIDMatcher::clearVariables() {
     rechit_e_.clear();
     rechit_x_.clear();
     rechit_y_.clear();
