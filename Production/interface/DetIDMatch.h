@@ -101,6 +101,7 @@ public:
     std::vector<std::pair<int, int>> simcluster_to_element;
     std::vector<float> simcluster_to_element_cmp;
     void fill(const edm::Event& iEvent, const edm::EventSetup& iSetup);
+    void associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements);
 
 // kuidas initsialiseerimine käib
 private:
@@ -109,7 +110,6 @@ private:
     );
     void clearVariables();  // vaja defineerida src
     GlobalPoint getHitPosition(const DetId& id);
-    void associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements);
     // ----------member data ---------------------------
 
     edm::EDGetTokenT<std::vector<reco::GenParticle>> genParticles_;
