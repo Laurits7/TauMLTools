@@ -146,7 +146,6 @@ public:
         cands_token(consumes<pat::PackedCandidateCollection>(cfg.getParameter<edm::InputTag>("pfCandidates"))),
         isoTracks_token(consumes<pat::IsolatedTrackCollection>(cfg.getParameter<edm::InputTag>("isoTracks"))),
         lostTracks_token(consumes<pat::PackedCandidateCollection>(cfg.getParameter<edm::InputTag>("lostTracks"))),
-        pfBlocks_(consumes<std::vector<reco::PFBlock>>(edm::InputTag("particleFlowBlock"))),
 
         data(TauTupleProducerData::RequestGlobalData()),
         tauTuple(data->tauTuple),
@@ -175,6 +174,7 @@ public:
             { "jet_cone", &builderSetup.jet_cone },
             { "fatJet_cone", &builderSetup.fatJet_cone },
         };
+        pfBlocks_ = consumes<std::vector<reco::PFBlock>>(edm::InputTag("particleFlowBlock"));
         const auto& builderParams = cfg.getParameterSet("tauJetBuilderSetup");
         for(const auto& paramName : builderParams.getParameterNames()) {
             auto iter = builderParamNames.find(paramName);
