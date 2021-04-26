@@ -27,6 +27,11 @@ double detid_compare(
 }
 
 
+DetIDMatcher::DetIDMatcher(const edm::ParameterSet& iConfig) {
+  pfBlocks_ = consumes<std::vector<reco::PFBlock>>(edm::InputTag("particleFlowBlock"));
+}
+
+
 GlobalPoint DetIDMatcher::getHitPosition(const DetId& id) {
   GlobalPoint ret;
   bool present = false;

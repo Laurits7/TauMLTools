@@ -174,7 +174,6 @@ public:
             { "jet_cone", &builderSetup.jet_cone },
             { "fatJet_cone", &builderSetup.fatJet_cone },
         };
-        pfBlocks_ = consumes<std::vector<reco::PFBlock>>(edm::InputTag("particleFlowBlock"));
         const auto& builderParams = cfg.getParameterSet("tauJetBuilderSetup");
         for(const auto& paramName : builderParams.getParameterNames()) {
             auto iter = builderParamNames.find(paramName);
@@ -907,7 +906,7 @@ private:
 
 
 
-        DetIDMatcher matcher();
+        DetIDMatcher matcher(iSetup);
         matcher.fill(iEvent, iSetup);
         tauTuple().rechit_x = matcher.rechit_x_;
         tauTuple().rechit_y = matcher.rechit_y_;
