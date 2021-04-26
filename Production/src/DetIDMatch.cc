@@ -249,4 +249,17 @@ void DetIDMatcher::associateClusterToSimCluster(
   }  //rechit clusters
 }
 
+void PFAnalysis::clearVariables() {
+    rechit_e_.clear();
+    rechit_x_.clear();
+    rechit_y_.clear();
+    rechit_z_.clear();
+    rechit_det_.clear();
+    rechit_subdet_.clear();
+    rechit_eta_.clear();
+    rechit_phi_.clear();
+    rechit_idx_element_.clear();
+    rechit_detid_.clear();
+}
+
 }

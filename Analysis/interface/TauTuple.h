@@ -383,6 +383,22 @@
                       n_LostPixelHits_MISSING_OUTER) /* number Of Lost Pixel Hits */ \
     TRACK_VAR3(Int_t, n_LostStripHits_TRACK, n_LostStripHits_MISSING_INNER, \
                       n_LostStripHits_MISSING_OUTER) /* number Of Lost Strip Hits */ \
+    VAR(std::vector<Float_t>, rechit_x) \
+    VAR(std::vector<Float_t>, rechit_y) \
+    VAR(std::vector<Float_t>, rechit_z) \
+    VAR(std::vector<Float_t>, rechit_det) \
+    VAR(std::vector<Float_t>, rechit_subdet) \
+    VAR(std::vector<Float_t>, rechit_eta) \
+    VAR(std::vector<Float_t>, rechit_phi) \
+    VAR(std::vector<Float_t>, rechit_e) \
+    VAR(std::vector<Float_t>, rechit_idx_element) \
+    VAR(std::vector<Float_t>, rechit_detid) \
+    VAR(std::vector<Float_t>, rechit_energy_all) \
+
+
+
+
+
     /**/
 
 #define VAR(type, name) DECLARE_BRANCH_VARIABLE(type, name)
