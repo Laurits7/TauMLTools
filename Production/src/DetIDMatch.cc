@@ -121,12 +121,16 @@ void DetIDMatcher::fill(const edm::Event& iEvent, const edm::EventSetup& iSetup)
     }
 }
 
+
+void DetIDMatcher::rechits_energy_all(){
+  return rechits_energy_all;
+}
+
+
 // vt indentation
 void DetIDMatcher::associateClusterToSimCluster(
     const std::vector<ElementWithIndex>& all_elements
 ){
-
-
   std::vector<std::map<uint64_t, double>> detids_elements;
   std::map<uint64_t, double> rechits_energy_all;
 
