@@ -903,10 +903,7 @@ private:
 
 
     static void FillBasedOnDetID(const edm::Event& iEvent, const edm::EventSetup& iSetup){
-
-
-
-        // DetIDMatcher matcher(iSetup);
+        DetIDMatcher matcher();
         matcher.fill(iEvent, iSetup);
         tauTuple().rechit_x = matcher.rechit_x_;
         tauTuple().rechit_y = matcher.rechit_y_;
