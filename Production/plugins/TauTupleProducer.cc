@@ -912,10 +912,10 @@ private:
         // tauTuple().rechit_subdet = matcher.rechit_subdet_;
         // tauTuple().rechit_eta = matcher.rechit_eta_;
         // tauTuple().rechit_phi = matcher.rechit_phi_;
-        // tauTuple().rechit_e = matcher.rechit_e_;
+        tauTuple().rechit_e = matcher.get_rechit_e;
         // tauTuple().rechit_idx_element = matcher.rechit_idx_element_;
         // tauTuple().rechit_detid = matcher.rechit_detid_;
-        tauTuple().v = matcher.rechits_energy_all;
+        // tauTuple().rechits_energy_all = matcher.rechits_energy_all;
     }
 
 private:

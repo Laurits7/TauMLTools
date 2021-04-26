@@ -122,8 +122,8 @@ void DetIDMatcher::fill(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 }
 
 
-void DetIDMatcher::rechits_energy_all(){
-  return rechits_energy_all;
+std::vector<float> DetIDMatcher::get_rechit_e(){
+  return rechit_e_;
 }
 
 
