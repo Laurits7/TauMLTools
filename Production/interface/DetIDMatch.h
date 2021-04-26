@@ -102,6 +102,7 @@ public:
     std::vector<float> simcluster_to_element_cmp;
     void fill(const edm::Event& iEvent, const edm::EventSetup& iSetup);
     void associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements);
+    std::vector<float> get_rechit_e()
 
 // kuidas initsialiseerimine käib
 private:
