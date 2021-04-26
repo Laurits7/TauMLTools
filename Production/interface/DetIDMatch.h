@@ -67,8 +67,6 @@
 
 namespace tau_analysis {
 
-// template<typename T>
-
 class ElementWithIndex {
 public:
   const reco::PFBlockElement& orig;
