@@ -939,6 +939,8 @@ private:
     edm::EDGetTokenT<pat::PackedCandidateCollection> cands_token;
     edm::EDGetTokenT<pat::IsolatedTrackCollection> isoTracks_token;
     edm::EDGetTokenT<pat::PackedCandidateCollection> lostTracks_token;
+    <std::vector<reco::PFBlock>>pfBlocks_;
+
 
 
     TauTupleProducerData* data;
