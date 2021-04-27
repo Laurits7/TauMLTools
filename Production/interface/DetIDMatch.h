@@ -115,7 +115,7 @@ public:
     void fill(
         edm::Handle<std::vector<reco::PFBlock>>& pfBlocksHandle,
         edm::Handle<edm::View<CaloParticle>> caloParticlesHandle,
-        const CaloGeometry& geom
+        const edm::EventSetup& eventSetup
     );
     void associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements);
 
