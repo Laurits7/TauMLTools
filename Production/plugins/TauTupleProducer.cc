@@ -914,7 +914,6 @@ private:
             cc_n_gamma = default_int_value;
         }
     }
-        FillBasedOnDetID(*pfBlocksHandle, *caloParticlesHandle, *geom);
 
 
     static void FillBasedOnDetID(auto& pfBlocksHandle, auto& caloParticlesHandle, auto& geom){
