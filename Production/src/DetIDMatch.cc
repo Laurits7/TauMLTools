@@ -119,7 +119,7 @@ void DetIDMatcher::fill(
             }
             simcluster_detids_.push_back(detid_energy);
         }
-        associateClusterToSimCluster(all_elements, *geom);
+        associateClusterToSimCluster(all_elements);
     }
 }
 
