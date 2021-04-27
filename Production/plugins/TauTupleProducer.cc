@@ -903,19 +903,19 @@ private:
 
 
     static void FillBasedOnDetID(const edm::Event& iEvent, const edm::EventSetup& iSetup){
-        DetIDMatcher matcher();
+        DetIDMatcher matcher;
         matcher.fill(iEvent, iSetup);
-        // tauTuple().rechit_x = matcher.rechit_x_;
-        // tauTuple().rechit_y = matcher.rechit_y_;
-        // tauTuple().rechit_z = matcher.rechit_z_;
-        // tauTuple().rechit_det = matcher.rechit_det_;
-        // tauTuple().rechit_subdet = matcher.rechit_subdet_;
-        // tauTuple().rechit_eta = matcher.rechit_eta_;
-        // tauTuple().rechit_phi = matcher.rechit_phi_;
+        tauTuple().rechit_x = matcher.rechit_x();
+        tauTuple().rechit_y = matcher.rechit_y();
+        tauTuple().rechit_z = matcher.rechit_z();
+        tauTuple().rechit_det = matcher.rechit_det();
+        tauTuple().rechit_subdet = matcher.rechit_subdet();
+        tauTuple().rechit_eta = matcher.rechit_eta();
+        tauTuple().rechit_phi = matcher.rechit_phi();
         tauTuple().rechit_e = matcher.get_rechit_e();
-        // tauTuple().rechit_idx_element = matcher.rechit_idx_element_;
-        // tauTuple().rechit_detid = matcher.rechit_detid_;
-        // tauTuple().rechits_energy_all = matcher.rechits_energy_all;
+        tauTuple().rechit_idx_element = matcher.rechit_idx_element();
+        tauTuple().rechit_detid = matcher.rechit_detid();
+        // tauTuple().rechits_energy_all = matcher.rechits_energy_all();
     }
 
 private:

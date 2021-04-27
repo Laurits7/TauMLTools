@@ -44,6 +44,9 @@ GlobalPoint DetIDMatcher::getHitPosition(const DetId& id) {
   return ret;
 }
 
+DetIDMatcher::DetIDMatcher(){}
+DetIDMatcher::~DetIDMatcher(){}
+
 
 //https://stackoverflow.com/questions/27086195/linear-index-upper-triangular-matrix/27088560
 int get_index_triu_vector(int i, int j, int n) {

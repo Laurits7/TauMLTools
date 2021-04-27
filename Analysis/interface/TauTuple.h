@@ -395,11 +395,9 @@
     VAR(std::vector<Float_t>, rechit_detid) \
     VAR(std::vector<Float_t>, rechit_energy_all) \
 
-
-
-
-
     /**/
+
+
 
 #define VAR(type, name) DECLARE_BRANCH_VARIABLE(type, name)
 DECLARE_TREE(tau_tuple, Tau, TauTuple, TAU_DATA, "taus")

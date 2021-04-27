@@ -97,12 +97,23 @@ public:
     std::vector<int> rechit_idx_element_;
     std::vector<uint64_t> rechit_detid_;
 
+    // Get functions
+    std::vector<float> rechit_e();
+    std::vector<float> rechit_x();
+    std::vector<float> rechit_y();
+    std::vector<float> rechit_z();
+    std::vector<float> rechit_det();
+    std::vector<float> rechit_subdet();
+    std::vector<float> rechit_eta();
+    std::vector<float> rechit_phi();
+    std::vector<int> rechit_idx_element();
+    std::vector<uint64_t> rechit_detid();
+    //
 
     std::vector<std::pair<int, int>> simcluster_to_element;
     std::vector<float> simcluster_to_element_cmp;
     void fill(const edm::Event& iEvent, const edm::EventSetup& iSetup);
     void associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements);
-    std::vector<float> get_rechit_e();
 
 // kuidas initsialiseerimine käib
 private:
