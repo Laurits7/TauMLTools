@@ -124,17 +124,6 @@ private:
     GlobalPoint getHitPosition(const DetId& id);
     // ----------member data ---------------------------
 
-    edm::EDGetTokenT<std::vector<reco::GenParticle>> genParticles_;
-    edm::EDGetTokenT<edm::View<TrackingParticle>> trackingParticles_;
-    edm::EDGetTokenT<edm::View<CaloParticle>> caloParticles_;
-    edm::EDGetTokenT<edm::View<reco::Track>> tracks_;
-    edm::EDGetTokenT<std::vector<reco::PFBlock>> pfBlocks_;
-    edm::EDGetTokenT<std::vector<reco::PFCandidate>> pfCandidates_;
-    edm::EDGetTokenT<reco::RecoToSimCollection> tracks_recotosim_;
-    CaloGeometry* geom;
-
-    edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometryToken_;
-
     std::vector<std::map<uint64_t, double>> simcluster_detids_;
 };
 
