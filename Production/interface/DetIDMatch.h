@@ -112,7 +112,7 @@ public:
 
     std::vector<std::pair<int, int>> simcluster_to_element;
     std::vector<float> simcluster_to_element_cmp;
-    void fill(const edm::Event& iEvent, const edm::EventSetup& iSetup);
+    void fill(auto& pfBlocksHandle, auto& caloParticlesHandle, auto& geom);
     void associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements);
 
 
