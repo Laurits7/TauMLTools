@@ -94,8 +94,8 @@ std::pair<std::vector<ElementWithIndex>, std::vector<std::tuple<int, int, float>
 
 
 void DetIDMatcher::fill(
-      edm::Handle<std::vector<reco::PFBlock>>& pfBlocksHandle,
-      edm::Handle<edm::View<CaloParticle>> caloParticlesHandle,
+      <std::vector<reco::PFBlock>>& pfBlocksHandle,
+      <edm::View<CaloParticle>> caloParticlesHandle,
       const edm::EventSetup& eventSetup
 ){
     edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometry_token;
@@ -131,7 +131,7 @@ std::vector<float> DetIDMatcher::rechit_e(){
 
 // vt indentation
 void DetIDMatcher::associateClusterToSimCluster(
-    const std::vector<ElementWithIndex>& all_elements,
+    const std::vector<ElementWithIndex>& all_elements
 ){
   std::vector<std::map<uint64_t, double>> detids_elements;
   std::map<uint64_t, double> rechits_energy_all;
