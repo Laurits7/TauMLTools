@@ -919,7 +919,7 @@ private:
             const edm::EventSetup& eventSetup
     ){
         DetIDMatcher matcher;
-        matcher.fill(*pfBlocksHandle, *caloParticlesHandle, eventSetup);
+        matcher.fill(pfBlocksHandle, caloParticlesHandle, eventSetup);
         // tauTuple().rechit_x = matcher.rechit_x();
         // tauTuple().rechit_y = matcher.rechit_y();
         // tauTuple().rechit_z = matcher.rechit_z();
