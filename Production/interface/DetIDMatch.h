@@ -115,7 +115,7 @@ public:
     void fill(const edm::Event& iEvent, const edm::EventSetup& iSetup);
     void associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements);
 
-// kuidas initsialiseerimine käib
+
 private:
     std::pair<std::vector<ElementWithIndex>, std::vector<std::tuple<int, int, float>>> processBlocks(
         const std::vector<reco::PFBlock>& pfBlocks

@@ -93,20 +93,13 @@ std::pair<std::vector<ElementWithIndex>, std::vector<std::tuple<int, int, float>
 }  //processBlocks
 
 
-void DetIDMatcher::fill(const edm::Event& iEvent, const edm::EventSetup& iSetup){
-    edm::Handle<std::vector<reco::PFBlock>> pfBlocksHandle;
-    iEvent.getByToken(pfBlocks_, pfBlocksHandle);
+void DetIDMatcher::fill(auto& pfBlocksHandle, auto& caloParticlesHandle, auto& geom){
+
     std::vector<reco::PFBlock> pfBlocks = *pfBlocksHandle;
-
-    edm::Handle<edm::View<CaloParticle>> caloParticlesHandle;
-    iEvent.getByToken(caloParticles_, caloParticlesHandle);
     const edm::View<CaloParticle>& caloParticles = *caloParticlesHandle;
-
     //Collect all clusters, tracks and superclusters
     const auto& all_elements_distances = processBlocks(pfBlocks);
     const auto& all_elements = all_elements_distances.first;
-    auto& pG = iSetup.getData(geometryToken_);
-    geom = (CaloGeometry*)&pG;
     for (unsigned long ncaloparticle = 0; ncaloparticle < caloParticles.size();ncaloparticle++) {
         const auto& cp = caloParticles.at(ncaloparticle);
         edm::RefToBase<CaloParticle> cpref(caloParticlesHandle, ncaloparticle);
@@ -125,7 +118,7 @@ void DetIDMatcher::fill(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 }
 
 
-std::vector<float> DetIDMatcher::get_rechit_e(){
+std::vector<float> DetIDMatcher::rechit_e(){
   return rechit_e_;
 }
 

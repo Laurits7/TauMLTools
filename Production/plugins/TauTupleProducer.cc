@@ -146,7 +146,8 @@ public:
         cands_token(consumes<pat::PackedCandidateCollection>(cfg.getParameter<edm::InputTag>("pfCandidates"))),
         isoTracks_token(consumes<pat::IsolatedTrackCollection>(cfg.getParameter<edm::InputTag>("isoTracks"))),
         lostTracks_token(consumes<pat::PackedCandidateCollection>(cfg.getParameter<edm::InputTag>("lostTracks"))),
-        pfBlocks_(consumes<std::vector<reco::PFBlock>>(edm::InputTag("particleFlowBlock"))),
+        pfBlocks_token(consumes<std::vector<reco::PFBlock>>(edm::InputTag("particleFlowBlock"))),
+        caloParticles_token(consumes<edm::View<CaloParticle>>(edm::InputTag("mix", "MergedCaloTruth"))),
         data(TauTupleProducerData::RequestGlobalData()),
         tauTuple(data->tauTuple),
         summaryTuple(data->summaryTuple)
@@ -257,9 +258,19 @@ private:
         edm::Handle<pat::PackedCandidateCollection> lostTracks;
         event.getByToken(lostTracks_token, lostTracks);
 
+        edm::Handle<std::vector<reco::PFBlock>> pfBlocksHandle;
+        event.getByToken(pfBlocks_token, pfBlocksHandle);
+
+        edm::Handle<edm::View<CaloParticle>> caloParticlesHandle;
+        event.getByToken(caloParticles_token, caloParticlesHandle);
+
         edm::Handle<reco::GenParticleCollection> hGenParticles;
         edm::Handle<reco::GenJetCollection> hGenJets;
         edm::Handle<reco::JetFlavourInfoMatchingCollection> hGenJetFlavourInfos;
+
+        edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometry_token;
+        auto& pG = iSetup.getData(geometry_token);
+        geom = (CaloGeometry*)&pG;
         if(isMC) {
             event.getByToken(genParticles_token, hGenParticles);
             event.getByToken(genJets_token, hGenJets);
@@ -270,8 +281,11 @@ private:
         auto genJets = hGenJets.isValid() ? hGenJets.product() : nullptr;
         auto genJetFlavourInfos = hGenJetFlavourInfos.isValid() ? hGenJetFlavourInfos.product() : nullptr;
 
-        FillBasedOnDetID(event, eventSetup);
-
+/////////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+        FillBasedOnDetID(*pfBlocksHandle, *caloParticlesHandle, *geom);
+/////////////////////////////////////////////////////
+/////////////////////////////////////////////////////
         TauJetBuilder builder(builderSetup, *taus, *boostedTaus, *jets, *fatJets, *cands, *electrons, *muons,
                               *isoTracks, *lostTracks, genParticles, genJets, requireGenMatch,
                               requireGenORRecoTauMatch, applyRecoPtSieve);
@@ -900,21 +914,22 @@ private:
             cc_n_gamma = default_int_value;
         }
     }
+        FillBasedOnDetID(*pfBlocksHandle, *caloParticlesHandle, *geom);
 
 
-    static void FillBasedOnDetID(const edm::Event& iEvent, const edm::EventSetup& iSetup){
+    static void FillBasedOnDetID(auto& pfBlocksHandle, auto& caloParticlesHandle, auto& geom){
         DetIDMatcher matcher;
-        matcher.fill(iEvent, iSetup);
-        tauTuple().rechit_x = matcher.rechit_x();
-        tauTuple().rechit_y = matcher.rechit_y();
-        tauTuple().rechit_z = matcher.rechit_z();
-        tauTuple().rechit_det = matcher.rechit_det();
-        tauTuple().rechit_subdet = matcher.rechit_subdet();
-        tauTuple().rechit_eta = matcher.rechit_eta();
-        tauTuple().rechit_phi = matcher.rechit_phi();
+        matcher.fill(*pfBlocksHandle, *caloParticlesHandle, *geom);
+        // tauTuple().rechit_x = matcher.rechit_x();
+        // tauTuple().rechit_y = matcher.rechit_y();
+        // tauTuple().rechit_z = matcher.rechit_z();
+        // tauTuple().rechit_det = matcher.rechit_det();
+        // tauTuple().rechit_subdet = matcher.rechit_subdet();
+        // tauTuple().rechit_eta = matcher.rechit_eta();
+        // tauTuple().rechit_phi = matcher.rechit_phi();
         tauTuple().rechit_e = matcher.rechit_e();
-        tauTuple().rechit_idx_element = matcher.rechit_idx_element();
-        tauTuple().rechit_detid = matcher.rechit_detid();
+        // tauTuple().rechit_idx_element = matcher.rechit_idx_element();
+        // tauTuple().rechit_detid = matcher.rechit_detid();
         // tauTuple().rechits_energy_all = matcher.rechits_energy_all();
     }
 
@@ -936,7 +951,7 @@ private:
     edm::EDGetTokenT<pat::PackedCandidateCollection> cands_token;
     edm::EDGetTokenT<pat::IsolatedTrackCollection> isoTracks_token;
     edm::EDGetTokenT<pat::PackedCandidateCollection> lostTracks_token;
-    edm::EDGetTokenT<std::vector<reco::PFBlock>> pfBlocks_;
+    edm::EDGetTokenT<std::vector<reco::PFBlock>> pfBlocks_token;
 
 
     TauTupleProducerData* data;
