@@ -94,7 +94,7 @@ std::pair<std::vector<ElementWithIndex>, std::vector<std::tuple<int, int, float>
 
 
 void DetIDMatcher::fill(
-      std::vector<reco::PFBlock>& pfBlocksHandle,
+      std::vector<reco::PFBlock> pfBlocksHandle,
       edm::View<CaloParticle> caloParticlesHandle,
       const edm::EventSetup& eventSetup
 ){

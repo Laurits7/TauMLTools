@@ -113,7 +113,7 @@ public:
     std::vector<std::pair<int, int>> simcluster_to_element;
     std::vector<float> simcluster_to_element_cmp;
     void fill(
-        std::vector<reco::PFBlock>& pfBlocksHandle,
+        std::vector<reco::PFBlock> pfBlocksHandle,
         edm::View<CaloParticle> caloParticlesHandle,
         const edm::EventSetup& eventSetup
     );
