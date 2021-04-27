@@ -127,7 +127,7 @@ private:
     void clearVariables();  // vaja defineerida src
     GlobalPoint getHitPosition(const DetId& id);
     // ----------member data ---------------------------
-
+    CaloGeometry* geom;
     std::vector<std::map<uint64_t, double>> simcluster_detids_;
 };
 

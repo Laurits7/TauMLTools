@@ -27,10 +27,7 @@ double detid_compare(
 }
 
 
-GlobalPoint DetIDMatcher::getHitPosition(
-    const DetId& id
-    const CaloGeometry& geom
-){
+GlobalPoint DetIDMatcher::getHitPosition(const DetId& id){
   GlobalPoint ret;
   bool present = false;
   if (((id.det() == DetId::Ecal &&
@@ -99,9 +96,11 @@ std::pair<std::vector<ElementWithIndex>, std::vector<std::tuple<int, int, float>
 void DetIDMatcher::fill(
       edm::Handle<std::vector<reco::PFBlock>>& pfBlocksHandle,
       edm::Handle<edm::View<CaloParticle>> caloParticlesHandle,
-      const CaloGeometry& geom
+      const edm::EventSetup& eventSetup
 ){
-
+    edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometry_token;
+    auto& pG = eventSetup.getData(geometry_token);
+    geom = (CaloGeometry*)&pG;
     std::vector<reco::PFBlock> pfBlocks = *pfBlocksHandle;
     const edm::View<CaloParticle>& caloParticles = *caloParticlesHandle;
     //Collect all clusters, tracks and superclusters
@@ -133,7 +132,6 @@ std::vector<float> DetIDMatcher::rechit_e(){
 // vt indentation
 void DetIDMatcher::associateClusterToSimCluster(
     const std::vector<ElementWithIndex>& all_elements,
-    const CaloGeometry& geom
 ){
   std::vector<std::map<uint64_t, double>> detids_elements;
   std::map<uint64_t, double> rechits_energy_all;
@@ -165,7 +163,7 @@ void DetIDMatcher::associateClusterToSimCluster(
         float eta = 0;
         float phi = 0;
 
-        const auto& pos = getHitPosition(id, geom);
+        const auto& pos = getHitPosition(id);
         x = pos.x();
         y = pos.y();
         z = pos.z();
@@ -203,7 +201,7 @@ void DetIDMatcher::associateClusterToSimCluster(
         float eta = 0;
         float phi = 0;
 
-        const auto& pos = getHitPosition(id, geom);
+        const auto& pos = getHitPosition(id);
         x = pos.x();
         y = pos.y();
         z = pos.z();
