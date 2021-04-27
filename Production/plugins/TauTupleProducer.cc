@@ -269,8 +269,8 @@ private:
         edm::Handle<reco::JetFlavourInfoMatchingCollection> hGenJetFlavourInfos;
 
         edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometry_token;
-        auto& pG = iSetup.getData(geometry_token);
-        geom = (CaloGeometry*)&pG;
+        auto& pG = eventSetup.getData(geometry_token);
+        CaloGeometry* geom = (CaloGeometry*)&pG;
         if(isMC) {
             event.getByToken(genParticles_token, hGenParticles);
             event.getByToken(genJets_token, hGenJets);
@@ -951,6 +951,7 @@ private:
     edm::EDGetTokenT<pat::IsolatedTrackCollection> isoTracks_token;
     edm::EDGetTokenT<pat::PackedCandidateCollection> lostTracks_token;
     edm::EDGetTokenT<std::vector<reco::PFBlock>> pfBlocks_token;
+    edm::EDGetTokenT<edm::View<CaloParticle>> caloParticles_token;
 
 
     TauTupleProducerData* data;
