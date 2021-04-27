@@ -93,7 +93,11 @@ std::pair<std::vector<ElementWithIndex>, std::vector<std::tuple<int, int, float>
 }  //processBlocks
 
 
-void DetIDMatcher::fill(auto& pfBlocksHandle, auto& caloParticlesHandle, auto& geom){
+void DetIDMatcher::fill(
+      edm::Handle<std::vector<reco::PFBlock>>& pfBlocksHandle,
+      edm::Handle<edm::View<CaloParticle>> caloParticlesHandle,
+      CaloGeometry& geom
+){
 
     std::vector<reco::PFBlock> pfBlocks = *pfBlocksHandle;
     const edm::View<CaloParticle>& caloParticles = *caloParticlesHandle;

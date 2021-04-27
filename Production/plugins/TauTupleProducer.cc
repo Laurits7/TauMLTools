@@ -270,7 +270,7 @@ private:
 
         edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometry_token;
         auto& pG = eventSetup.getData(geometry_token);
-        CaloGeometry* geom = (CaloGeometry*)&pG;
+        CaloGeometry* geom = *pG;
         if(isMC) {
             event.getByToken(genParticles_token, hGenParticles);
             event.getByToken(genJets_token, hGenJets);
@@ -916,7 +916,11 @@ private:
     }
 
 
-    static void FillBasedOnDetID(auto& pfBlocksHandle, auto& caloParticlesHandle, auto& geom){
+    static void FillBasedOnDetID(
+            edm::Handle<std::vector<reco::PFBlock>>& pfBlocksHandle,
+            edm::Handle<edm::View<CaloParticle>> caloParticlesHandle,
+            CaloGeometry& geom
+    ){
         DetIDMatcher matcher;
         matcher.fill(*pfBlocksHandle, *caloParticlesHandle, *geom);
         // tauTuple().rechit_x = matcher.rechit_x();
