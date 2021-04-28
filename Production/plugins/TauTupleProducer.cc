@@ -280,7 +280,7 @@ private:
 
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
-        FillBasedOnDetID(*pfBlocksHandle, *caloParticlesHandle, eventSetup);
+        FillBasedOnDetID(pfBlocksHandle, caloParticlesHandle, eventSetup);
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
         TauJetBuilder builder(builderSetup, *taus, *boostedTaus, *jets, *fatJets, *cands, *electrons, *muons,
@@ -914,8 +914,8 @@ private:
 
 
     static void FillBasedOnDetID(
-            edm::Handle<std::vector<reco::PFBlock>> pfBlocksHandle,
-            edm::Handle<edm::View<CaloParticle>> caloParticlesHandle,
+            edm::Handle<std::vector<reco::PFBlock>>& pfBlocksHandle,
+            edm::Handle<edm::View<CaloParticle>>& caloParticlesHandle,
             const edm::EventSetup& eventSetup
     ){
         DetIDMatcher matcher;
