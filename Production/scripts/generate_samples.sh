@@ -22,7 +22,7 @@ cmsDriver.py DYToLL_M-50_14TeV_pythia8_cff \
     --conditions auto:phase2_realistic \
     -n 10 \
     --era Phase2C8 \
-    --eventcontent FEVTDEBUG \
+    --eventcontent FEVTDEBUGHLT \
     --relval 9000,100 \
     -s GEN,SIM,DIGI,L1,DIGI2RAW,HLT \
     --datatier GEN-SIM \
@@ -38,9 +38,9 @@ cmsDriver.py step3 \
     --conditions auto:phase2_realistic \
     -n 10 \
     --era Phase2C8 \
-    --eventcontent FEVTDEBUGHLT,MINIAODSIM,DQM \
+    --eventcontent FEVTDEBUGHLT \
     -s RAW2DIGI,L1Reco,RECO,RECOSIM \
-    --datatier GEN-SIM-RECO,MINIAODSIM,DQMIO \
+    --datatier GEN-SIM-RECO \
     --pileup AVE_200_BX_25ns \
     --geometry DB:Extended \
     --customise TauMLTools/Production/customize_pfanalysis.customize_step3\
@@ -53,3 +53,6 @@ echo "process.RandomNumberGeneratorService.generator.initialSeed = 1" >> step2_p
 # cmsRun step2_phase1_new.py
 # cmsRun step3_phase1_new.py
 # cmsRun $PACKAGE_BASE/config/ntuple_config.py
+
+
+# PILEUP for step3 could be different
