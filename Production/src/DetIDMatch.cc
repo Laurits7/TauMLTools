@@ -94,14 +94,14 @@ std::pair<std::vector<ElementWithIndex>, std::vector<std::tuple<int, int, float>
 
 
 void DetIDMatcher::fill(
-      std::vector<reco::PFBlock>& pfBlocksHandle,
+      const std::vector<reco::PFBlock>& pfBlocks,
       edm::View<CaloParticle>& caloParticlesHandle,
       const edm::EventSetup& eventSetup
 ){
     edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometry_token;
     auto& pG = eventSetup.getData(geometry_token);
     geom = (CaloGeometry*)&pG;
-    std::vector<reco::PFBlock> pfBlocks = *pfBlocksHandle;
+    
     const edm::View<CaloParticle>& caloParticles = *caloParticlesHandle;
     //Collect all clusters, tracks and superclusters
     const auto& all_elements_distances = processBlocks(pfBlocks);

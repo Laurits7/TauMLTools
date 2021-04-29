@@ -260,6 +260,7 @@ private:
 
         edm::Handle<std::vector<reco::PFBlock>> pfBlocksHandle;
         event.getByToken(pfBlocks_token, pfBlocksHandle);
+        std::vector<reco::PFBlock> pfBlocks = *pfBlocksHandle;
 
         edm::Handle<edm::View<CaloParticle>> caloParticlesHandle;
         event.getByToken(caloParticles_token, caloParticlesHandle);
@@ -280,7 +281,7 @@ private:
 
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
-        FillBasedOnDetID(pfBlocksHandle, caloParticlesHandle, eventSetup);
+        FillBasedOnDetID(pfBlocks, caloParticlesHandle, eventSetup);
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
         TauJetBuilder builder(builderSetup, *taus, *boostedTaus, *jets, *fatJets, *cands, *electrons, *muons,
