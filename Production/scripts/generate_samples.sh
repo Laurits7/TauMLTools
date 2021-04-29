@@ -7,6 +7,8 @@
 #   bash generate_ntuples.sh $SAMPLE $OUTPUT_DIR $NUM_EVENTS $SEED
 # e.g
 #   bash generate_ntuples.sh TTbar_14TeV_TuneCP5_cfi /afs/cern.ch/work/l/ltani/ 10 1
+#
+# runTheMatrix.py -w upgrade -l 23434 --dryRun
 
 set -e  # If the return code of one command is not 0 and the caller does not check it, the shell script will exit.
 set -x  # prints shell command before executing it
