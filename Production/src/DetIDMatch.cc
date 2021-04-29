@@ -95,7 +95,7 @@ std::pair<std::vector<ElementWithIndex>, std::vector<std::tuple<int, int, float>
 
 void DetIDMatcher::fill(
       const std::vector<reco::PFBlock>& pfBlocks,
-      edm::View<CaloParticle>& caloParticlesHandle,
+      edm::Handle<edm::View<CaloParticle>>& caloParticlesHandle,
       const edm::EventSetup& eventSetup
 ){
     edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometry_token;

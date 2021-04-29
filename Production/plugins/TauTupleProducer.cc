@@ -281,7 +281,7 @@ private:
 
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
-        FillBasedOnDetID(pfBlocks, caloParticlesHandle, eventSetup);
+        FillBasedOnDetID(pfBlocks, *caloParticlesHandle, eventSetup);
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
         TauJetBuilder builder(builderSetup, *taus, *boostedTaus, *jets, *fatJets, *cands, *electrons, *muons,
@@ -928,7 +928,7 @@ private:
         // tauTuple().rechit_subdet = matcher.rechit_subdet();
         // tauTuple().rechit_eta = matcher.rechit_eta();
         // tauTuple().rechit_phi = matcher.rechit_phi();
-        tauTuple().rechit_e = matcher.rechit_e();
+        // tauTuple().rechit_e = matcher.rechit_e();
         // tauTuple().rechit_idx_element = matcher.rechit_idx_element();
         // tauTuple().rechit_detid = matcher.rechit_detid();
         // tauTuple().rechits_energy_all = matcher.rechits_energy_all();
