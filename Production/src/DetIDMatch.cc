@@ -101,8 +101,8 @@ void DetIDMatcher::fill(
     edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometry_token;
     auto& pG = eventSetup.getData(geometry_token);
     geom = (CaloGeometry*)&pG;
-    std::vector<reco::PFBlock> pfBlocks = pfBlocksHandle;
-    const edm::View<CaloParticle>& caloParticles = caloParticlesHandle;
+    std::vector<reco::PFBlock> pfBlocks = *pfBlocksHandle;
+    const edm::View<CaloParticle>& caloParticles = *caloParticlesHandle;
     //Collect all clusters, tracks and superclusters
     const auto& all_elements_distances = processBlocks(pfBlocks);
     const auto& all_elements = all_elements_distances.first;
