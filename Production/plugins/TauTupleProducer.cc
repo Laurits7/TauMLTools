@@ -915,12 +915,12 @@ private:
 
 
     static void FillBasedOnDetID(
-            edm::Handle<std::vector<reco::PFBlock>>& pfBlocksHandle,
+            const std::vector<reco::PFBlock>& pfBlocks,
             edm::Handle<edm::View<CaloParticle>>& caloParticlesHandle,
             const edm::EventSetup& eventSetup
     ){
         DetIDMatcher matcher;
-        matcher.fill(pfBlocksHandle, caloParticlesHandle, eventSetup);
+        matcher.fill(pfBlocks, caloParticlesHandle, eventSetup);
         // tauTuple().rechit_x = matcher.rechit_x();
         // tauTuple().rechit_y = matcher.rechit_y();
         // tauTuple().rechit_z = matcher.rechit_z();
