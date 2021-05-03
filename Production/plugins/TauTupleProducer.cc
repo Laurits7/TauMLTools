@@ -269,7 +269,6 @@ private:
         edm::Handle<reco::GenParticleCollection> hGenParticles;
         edm::Handle<reco::GenJetCollection> hGenJets;
         edm::Handle<reco::JetFlavourInfoMatchingCollection> hGenJetFlavourInfos;
-        edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometry_token;
 
         if(isMC) {
             event.getByToken(genParticles_token, hGenParticles);
@@ -283,7 +282,8 @@ private:
 
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
-        FillBasedOnDetID(pfBlocks, caloParticlesHandle, geometry_token, eventSetup);
+        auto& pG = eventSetup.getData(geometry_token);
+        FillBasedOnDetID(pfBlocks, caloParticlesHandle, pG);
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
         TauJetBuilder builder(builderSetup, *taus, *boostedTaus, *jets, *fatJets, *cands, *electrons, *muons,
@@ -919,11 +919,10 @@ private:
     static void FillBasedOnDetID(
             const std::vector<reco::PFBlock>& pfBlocks,
             edm::Handle<edm::View<CaloParticle>>& caloParticlesHandle,
-            edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometry_token,
-            const edm::EventSetup& eventSetup
+            auto& pG
     ){
         DetIDMatcher matcher;
-        matcher.fill(pfBlocks, caloParticlesHandle, geometry_token, eventSetup);
+        matcher.fill(pfBlocks, caloParticlesHandle, pG);
         // tauTuple().rechit_x = matcher.rechit_x();
         // tauTuple().rechit_y = matcher.rechit_y();
         // tauTuple().rechit_z = matcher.rechit_z();
