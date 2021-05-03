@@ -919,7 +919,7 @@ private:
     static void FillBasedOnDetID(
             const std::vector<reco::PFBlock>& pfBlocks,
             edm::Handle<edm::View<CaloParticle>>& caloParticlesHandle,
-            auto& pG
+            CaloGeometry pG
     ){
         DetIDMatcher matcher;
         matcher.fill(pfBlocks, caloParticlesHandle, pG);
