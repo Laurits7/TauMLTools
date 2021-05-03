@@ -148,6 +148,7 @@ public:
         lostTracks_token(consumes<pat::PackedCandidateCollection>(cfg.getParameter<edm::InputTag>("lostTracks"))),
         pfBlocks_token(consumes<std::vector<reco::PFBlock>>(edm::InputTag("particleFlowBlock"))),
         caloParticles_token(consumes<edm::View<CaloParticle>>(edm::InputTag("mix", "MergedCaloTruth"))),
+        geometry_token(esConsumes<CaloGeometry, CaloGeometryRecord>(edm::ESInputTag{}));
         data(TauTupleProducerData::RequestGlobalData()),
         tauTuple(data->tauTuple),
         summaryTuple(data->summaryTuple)
@@ -268,6 +269,7 @@ private:
         edm::Handle<reco::GenParticleCollection> hGenParticles;
         edm::Handle<reco::GenJetCollection> hGenJets;
         edm::Handle<reco::JetFlavourInfoMatchingCollection> hGenJetFlavourInfos;
+        edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometry_token;
 
         if(isMC) {
             event.getByToken(genParticles_token, hGenParticles);
@@ -281,7 +283,7 @@ private:
 
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
-        FillBasedOnDetID(pfBlocks, caloParticlesHandle, eventSetup);
+        FillBasedOnDetID(pfBlocks, caloParticlesHandle, geometry_token, eventSetup);
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
         TauJetBuilder builder(builderSetup, *taus, *boostedTaus, *jets, *fatJets, *cands, *electrons, *muons,
@@ -917,10 +919,11 @@ private:
     static void FillBasedOnDetID(
             const std::vector<reco::PFBlock>& pfBlocks,
             edm::Handle<edm::View<CaloParticle>>& caloParticlesHandle,
+            edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometry_token,
             const edm::EventSetup& eventSetup
     ){
         DetIDMatcher matcher;
-        matcher.fill(pfBlocks, caloParticlesHandle, eventSetup);
+        matcher.fill(pfBlocks, caloParticlesHandle, geometry_token, eventSetup);
         // tauTuple().rechit_x = matcher.rechit_x();
         // tauTuple().rechit_y = matcher.rechit_y();
         // tauTuple().rechit_z = matcher.rechit_z();
@@ -954,6 +957,7 @@ private:
     edm::EDGetTokenT<pat::PackedCandidateCollection> lostTracks_token;
     edm::EDGetTokenT<std::vector<reco::PFBlock>> pfBlocks_token;
     edm::EDGetTokenT<edm::View<CaloParticle>> caloParticles_token;
+    edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometry_token;
 
 
     TauTupleProducerData* data;
