@@ -148,7 +148,7 @@ public:
         lostTracks_token(consumes<pat::PackedCandidateCollection>(cfg.getParameter<edm::InputTag>("lostTracks"))),
         pfBlocks_token(consumes<std::vector<reco::PFBlock>>(edm::InputTag("particleFlowBlock"))),
         caloParticles_token(consumes<edm::View<CaloParticle>>(edm::InputTag("mix", "MergedCaloTruth"))),
-        geometry_token(esConsumes<CaloGeometry, CaloGeometryRecord>(edm::ESInputTag{}));
+        geometry_token(esConsumes<CaloGeometry, CaloGeometryRecord>(edm::ESInputTag{})),
         data(TauTupleProducerData::RequestGlobalData()),
         tauTuple(data->tauTuple),
         summaryTuple(data->summaryTuple)
@@ -282,7 +282,6 @@ private:
 
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
-        auto& pG = eventSetup.getData(geometry_token);
         FillBasedOnDetID(pfBlocks, caloParticlesHandle, geometry_token, eventSetup);
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
@@ -892,9 +891,12 @@ private:
         return default_value;
     }
 
-    static void CalculateElectronClusterVars(const pat::Electron& ele, float& cc_ele_energy, float& cc_gamma_energy,
-                                             int& cc_n_gamma)
-    {
+    static void CalculateElectronClusterVars(
+            const pat::Electron& ele,
+            float& cc_ele_energy,
+            float& cc_gamma_energy,
+            int& cc_n_gamma
+    ){
         cc_ele_energy = cc_gamma_energy = 0;
         cc_n_gamma = 0;
         const auto& superCluster = ele.superCluster();

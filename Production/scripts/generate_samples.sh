@@ -7,7 +7,8 @@
 #   bash generate_ntuples.sh $SAMPLE $OUTPUT_DIR $NUM_EVENTS $SEED
 # e.g
 #   bash generate_samples.sh TTbar_14TeV_TuneCP5_cfi /afs/cern.ch/work/l/ltani/ 10 1
-
+#
+# cmsRun Production/python/Production.py sampleType=MC_Phase2_111X inputFiles=file:///afs/cern.ch/work/l/ltani/TTTo2L2Nu-noPU-run4.root maxEvents=3
 set -e  # If the return code of one command is not 0 and the caller does not check it, the shell script will exit.
 set -x  # prints shell command before executing it
 

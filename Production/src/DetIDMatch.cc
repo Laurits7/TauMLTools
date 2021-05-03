@@ -61,7 +61,8 @@ std::pair<int, int> get_triu_vector_index(int k, int n) {
 }
 
 std::pair<std::vector<ElementWithIndex>, std::vector<std::tuple<int, int, float>>> DetIDMatcher::processBlocks(
-    const std::vector<reco::PFBlock>& pfBlocks) {
+    const std::vector<reco::PFBlock>& pfBlocks
+) {
   std::vector<ElementWithIndex> ret;
   std::vector<std::tuple<int, int, float>> distances;
 
@@ -96,17 +97,18 @@ std::pair<std::vector<ElementWithIndex>, std::vector<std::tuple<int, int, float>
 void DetIDMatcher::fill(
       const std::vector<reco::PFBlock>& pfBlocks,
       edm::Handle<edm::View<CaloParticle>>& caloParticlesHandle,
-      edm::ESGetToken<CaloGeometry, CaloGeometryRecord>& geometry_token
+      edm::ESGetToken<CaloGeometry, CaloGeometryRecord>& geometry_token,
       const edm::EventSetup& eventSetup
 ){
     // edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometry_token;
     auto& pG = eventSetup.getData(geometry_token);
     geom = (CaloGeometry*)&pG;
-    
+
     const edm::View<CaloParticle>& caloParticles = *caloParticlesHandle;
     //Collect all clusters, tracks and superclusters
     const auto& all_elements_distances = processBlocks(pfBlocks);
     const auto& all_elements = all_elements_distances.first;
+    assert(!all_elements.empty());
     for (unsigned long ncaloparticle = 0; ncaloparticle < caloParticles.size();ncaloparticle++) {
         const auto& cp = caloParticles.at(ncaloparticle);
         edm::RefToBase<CaloParticle> cpref(caloParticlesHandle, ncaloparticle);
@@ -120,8 +122,8 @@ void DetIDMatcher::fill(
             }
             simcluster_detids_.push_back(detid_energy);
         }
-        associateClusterToSimCluster(all_elements);
     }
+    associateClusterToSimCluster(all_elements);
 }
 
 
@@ -134,9 +136,9 @@ std::vector<float> DetIDMatcher::rechit_e(){
 void DetIDMatcher::associateClusterToSimCluster(
     const std::vector<ElementWithIndex>& all_elements
 ){
+
   std::vector<std::map<uint64_t, double>> detids_elements;
   std::map<uint64_t, double> rechits_energy_all;
-
   int idx_element = 0;
   for (const auto& elem : all_elements) {
     std::map<uint64_t, double> detids;
