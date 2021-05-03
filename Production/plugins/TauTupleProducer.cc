@@ -18,7 +18,7 @@
 #include "DataFormats/TrackReco/interface/HitPattern.h"
 
 #include "SimDataFormats/GeneratorProducts/interface/GenEventInfoProduct.h"
-#include "SimDataFormats/JetMatching/interface/JetFlavourInfoMatching.h"
+#include "DataFormats/JetMatching/interface/JetFlavourInfoMatching.h"  // In CMSSW_10 it is under SimDataFormats, but in 11 it is under DataFormats
 
 #include "AnalysisDataFormats/TopObjects/interface/TtGenEvent.h"
 #include "CommonTools/UtilAlgos/interface/TFileService.h"

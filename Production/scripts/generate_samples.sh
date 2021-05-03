@@ -11,10 +11,10 @@
 set -e  # If the return code of one command is not 0 and the caller does not check it, the shell script will exit.
 set -x  # prints shell command before executing it
 
-SAMPLE=$1  # For which sample the ntuples are generated
-OUTPUT_DIR=$2  # Directory where the ntuples and config files are saved
-NUM_EVENTS=$3  # Number of events to be analyzed
-SEED=$4  # Random seed needed for runTheMatrix.py, each workflow needs to have different
+# SAMPLE=$1  # For which sample the ntuples are generated
+# OUTPUT_DIR=$2  # Directory where the ntuples and config files are saved
+# NUM_EVENTS=$3  # Number of events to be analyzed
+# SEED=$4  # Random seed needed for runTheMatrix.py, each workflow needs to have different
 
 cd $OUTPUT_DIR
 
@@ -50,8 +50,8 @@ cmsDriver.py step3 \
     --python_filename=step3_phase1_new.py
 
 echo "process.RandomNumberGeneratorService.generator.initialSeed = 1" >> step2_phase1_new.py
-# cmsRun step2_phase1_new.py
-# cmsRun step3_phase1_new.py
+cmsRun step2_phase1_new.py
+cmsRun step3_phase1_new.py
 # cmsRun $PACKAGE_BASE/config/ntuple_config.py
 
 
