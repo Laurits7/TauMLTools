@@ -53,7 +53,7 @@ def customize_step3(process):
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedGenJets*_*_*')
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedMuonTrackExtras*_*_*')
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedHcalRecHits*_*_*')
-    process.FEVTDEBUGHLToutput.outputCommands.append('keep *_offlineSlimmedPrimaryVertices_*_*')
+    process.FEVTDEBUGHLToutput.outputCommands.append('keep *_offlineSlimmedPrimaryVertices*_*_*')
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_packedPFCandidates_*_*')
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_isolatedTracks_*_*')
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_*Gen*_*_*')
