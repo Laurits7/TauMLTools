@@ -163,7 +163,7 @@ std::vector<int> DetIDMatcher::rechit_idx_element(){
   return rechit_idx_element_;
 }
 
-std::vector<uint64_t> DetIDMatcher::rechit_detid(){
+std::vector<uint> DetIDMatcher::rechit_detid(){
   return rechit_detid_;
 }
 

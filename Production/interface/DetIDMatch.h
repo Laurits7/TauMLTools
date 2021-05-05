@@ -95,7 +95,7 @@ public:
     std::vector<float> rechit_eta_;
     std::vector<float> rechit_phi_;
     std::vector<int> rechit_idx_element_;
-    std::vector<uint64_t> rechit_detid_;
+    std::vector<uint> rechit_detid_;
 
     // Get functions
     std::vector<float> rechit_e();
@@ -107,7 +107,7 @@ public:
     std::vector<float> rechit_eta();
     std::vector<float> rechit_phi();
     std::vector<int> rechit_idx_element();
-    std::vector<uint64_t> rechit_detid();
+    std::vector<uint> rechit_detid();
     //
 
     std::vector<std::pair<int, int>> simcluster_to_element;
