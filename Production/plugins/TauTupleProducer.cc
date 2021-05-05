@@ -936,7 +936,6 @@ private:
         tauTuple().rechit_e = matcher.rechit_e();
         tauTuple().rechit_idx_element = matcher.rechit_idx_element();
         tauTuple().rechit_detid = matcher.rechit_detid();
-        tauTuple().rechits_energy_all = matcher.rechits_energy_all();
     }
 
 private:

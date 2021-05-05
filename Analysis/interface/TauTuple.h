@@ -393,8 +393,6 @@
     VAR(std::vector<Float_t>, rechit_e) \
     VAR(std::vector<Float_t>, rechit_idx_element) \
     VAR(std::vector<Float_t>, rechit_detid) \
-    VAR(std::vector<Float_t>, rechit_energy_all) \
-    VAR(Int_t, random_number)\
     /**/
 
 
