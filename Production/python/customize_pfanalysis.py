@@ -38,5 +38,20 @@ def customize_step3(process):
     process.FEVTDEBUGHLToutput.outputCommands.append('keep recoTracks_*_*_*')
     process.FEVTDEBUGHLToutput.outputCommands.append('keep recoGsfTracks_*_*_*')
     process.FEVTDEBUGHLToutput.outputCommands.append('keep recoPFBlocks_*_*_*')
+    # Additions
+    process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedMET*_*_*')
+    process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedPhotons*_*_*')
+    process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedTaus*_*_*')
+    process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedElectrons*_*_*')
+    process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedJets*_*_*')
+    process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedMuons*_*_*')
+
+    process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedCaloJets*_*_*')
+    process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedGenJets*_*_*')
+    process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedMuonTrackExtras*_*_*')
+    process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedHcalRecHits*_*_*')
+
+
+
 
     return process

@@ -19,42 +19,47 @@ set -x  # prints shell command before executing it
 
 SEED=1
 
-cmsDriver.py TTbar_14TeV_TuneCP5_cfi \
-    --conditions auto:phase2_realistic_T15 \
-    -n 10 \
-    --era Phase2C9 \
-    --eventcontent FEVTDEBUGHLT \
-    --relval 9000,100 \
-    -s GEN,SIM,DIGI,L1,DIGI2RAW,HLT \
-    --datatier GEN-SIM \
-    --beamspot HLLHC14TeV \
-    --geometry Extended2026D49 \
-    --no_exec \
-    --customise TauMLTools/Production/customize_pfanalysis.customize_step2 \
-    --python_filename=step2_phase1_new.py \
-    --fileout step2_phase1_new.root 
+#!/bin/bash
+set -x
 
+# in: /home/joosep/reco/CMSSW_11_3_0_pre6 dryRun for 'cd 23434.0_TTbar_14TeV+2026D49PU+TTbar_14TeV_TuneCP5_GenSimHLBeamSpot14+DigiTriggerPU+RecoGlobalPU+HARVESTGlobalPU
+ cmsDriver.py TTbar_14TeV_TuneCP5_cfi  \
+ --conditions auto:phase2_realistic_T15 \
+ -n 3 \
+ --era Phase2C9 \
+ --eventcontent FEVTDEBUG \
+ --relval 9000,100 -s GEN,SIM \
+ --datatier GEN-SIM \
+ --beamspot HLLHC14TeV \
+ --geometry Extended2026D49 \
+ --fileout file:step1.root 
 
-cmsDriver.py step3 \
-    --conditions auto:phase2_realistic_T15 \
-    -n 10 \
-    --era Phase2C9 \
-    --eventcontent FEVTDEBUGHLT \
-    -s RAW2DIGI,L1Reco,RECO,RECOSIM \
-    --datatier GEN-SIM-RECO \
-    --geometry Extended2026D49 \
-    --no_exec \
-    --filein file:step2_phase1_new.root \
-    --fileout step3_phase1_new.root \
-    --customise TauMLTools/Production/customize_pfanalysis.customize_step3 \
-    --python_filename=step3_phase1_new.py
-    # --pileup AVE_200_BX_25ns \
+ # in: /home/joosep/reco/CMSSW_11_3_0_pre6 dryRun for 'cd 23434.0_TTbar_14TeV+2026D49PU+TTbar_14TeV_TuneCP5_GenSimHLBeamSpot14+DigiTriggerPU+RecoGlobalPU+HARVESTGlobalPU
+  cmsDriver.py step2  \
+  --conditions auto:phase2_realistic_T15 \
+  --pileup_input filelist:pu_files.txt \
+  --customise TauMLTools/Production/customize_pfanalysis.customize_step2 \
+  -n 3 \
+  --era Phase2C9 \
+  --eventcontent FEVTDEBUGHLT \
+  -s DIGI:pdigi_valid,L1TrackTrigger,L1,DIGI2RAW,HLT:@fake2 \
+  --datatier GEN-SIM-DIGI-RAW \
+  --pileup AVE_200_BX_25ns \
+  --geometry Extended2026D49 \
+  --filein  file:step1.root  \
+  --fileout file:step2.root
 
-
-echo "process.RandomNumberGeneratorService.generator.initialSeed = $SEED" >> step2_phase1_new.py
-cmsRun step2_phase1_new.py
-cmsRun step3_phase1_new.py
-# cmsRun $PACKAGE_BASE/config/ntuple_config.py
-
-
-# PILEUP for step3 could be different
+  # in: /home/joosep/reco/CMSSW_11_3_0_pre6 dryRun for 'cd 23434.0_TTbar_14TeV+2026D49PU+TTbar_14TeV_TuneCP5_GenSimHLBeamSpot14+DigiTriggerPU+RecoGlobalPU+HARVESTGlobalPU
+   cmsDriver.py step3  \
+   --conditions auto:phase2_realistic_T15 \
+   --pileup_input filelist:pu_files.txt \
+   -n 3 \
+   --customise TauMLTools/Production/customize_pfanalysis.customize_step3 \
+   --era Phase2C9 \
+   --eventcontent FEVTDEBUGHLT,MINIAODSIM,DQM \
+   -s RAW2DIGI,L1Reco,RECO,RECOSIM,PAT,VALIDATION:@phase2Validation+@miniAODValidation,DQM:@phase2+@miniAODDQM \
+   --datatier GEN-SIM-RECO,MINIAODSIM,DQMIO \
+   --pileup AVE_200_BX_25ns \
+   --geometry Extended2026D49 \
+   --filein  file:step2.root  \
+   --fileout file:step3.root
