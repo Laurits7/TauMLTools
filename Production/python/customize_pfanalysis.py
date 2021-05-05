@@ -57,4 +57,5 @@ def customize_step3(process):
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_packedPFCandidates_*_*')
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_isolatedTracks_*_*')
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_*Gen*_*_*')
+    process.FEVTDEBUGHLToutput.outputCommands.append('keep *_reducedEgamma_*_*')
     return process
