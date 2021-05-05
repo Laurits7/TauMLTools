@@ -391,8 +391,8 @@
     VAR(std::vector<Float_t>, rechit_eta) \
     VAR(std::vector<Float_t>, rechit_phi) \
     VAR(std::vector<Float_t>, rechit_e) \
-    VAR(std::vector<Float_t>, rechit_idx_element) \
-    VAR(std::vector<Float_t>, rechit_detid) \
+    VAR(std::vector<Int_t>, rechit_idx_element) \
+    VAR(std::vector<UInt_t>, rechit_detid) \
     /**/
 
 
