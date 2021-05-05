@@ -127,9 +127,50 @@ void DetIDMatcher::fill(
 }
 
 
+std::vector<float> DetIDMatcher::rechit_x(){
+  return rechit_e_;
+}
+
+std::vector<float> DetIDMatcher::rechit_y(){
+  return rechit_e_;
+}
+
+std::vector<float> DetIDMatcher::rechit_z(){
+  return rechit_e_;
+}
+
+std::vector<float> DetIDMatcher::rechit_det(){
+  return rechit_e_;
+}
+
+std::vector<float> DetIDMatcher::rechit_subdet(){
+  return rechit_e_;
+}
+
+std::vector<float> DetIDMatcher::rechit_eta(){
+  return rechit_e_;
+}
+
+std::vector<float> DetIDMatcher::rechit_phi(){
+  return rechit_e_;
+}
+
 std::vector<float> DetIDMatcher::rechit_e(){
   return rechit_e_;
 }
+
+std::vector<float> DetIDMatcher::rechit_idx_element(){
+  return rechit_e_;
+}
+
+std::vector<float> DetIDMatcher::rechit_detid(){
+  return rechit_e_;
+}
+
+std::vector<float> DetIDMatcher::rechits_energy_all(){
+  return rechit_e_;
+}
+
 
 
 // vt indentation

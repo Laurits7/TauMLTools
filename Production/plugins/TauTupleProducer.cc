@@ -918,7 +918,7 @@ private:
     }
 
 
-    static void FillBasedOnDetID(
+    void FillBasedOnDetID(
             const std::vector<reco::PFBlock>& pfBlocks,
             edm::Handle<edm::View<CaloParticle>>& caloParticlesHandle,
             edm::ESGetToken<CaloGeometry, CaloGeometryRecord>& geometry_token,
@@ -926,17 +926,17 @@ private:
     ){
         DetIDMatcher matcher;
         matcher.fill(pfBlocks, caloParticlesHandle, geometry_token, eventSetup);
-        // tauTuple().rechit_x = matcher.rechit_x();
-        // tauTuple().rechit_y = matcher.rechit_y();
-        // tauTuple().rechit_z = matcher.rechit_z();
-        // tauTuple().rechit_det = matcher.rechit_det();
-        // tauTuple().rechit_subdet = matcher.rechit_subdet();
-        // tauTuple().rechit_eta = matcher.rechit_eta();
-        // tauTuple().rechit_phi = matcher.rechit_phi();
-        // tauTuple().rechit_e = matcher.rechit_e();
-        // tauTuple().rechit_idx_element = matcher.rechit_idx_element();
-        // tauTuple().rechit_detid = matcher.rechit_detid();
-        // tauTuple().rechits_energy_all = matcher.rechits_energy_all();
+        tauTuple().rechit_x = matcher.rechit_x();
+        tauTuple().rechit_y = matcher.rechit_y();
+        tauTuple().rechit_z = matcher.rechit_z();
+        tauTuple().rechit_det = matcher.rechit_det();
+        tauTuple().rechit_subdet = matcher.rechit_subdet();
+        tauTuple().rechit_eta = matcher.rechit_eta();
+        tauTuple().rechit_phi = matcher.rechit_phi();
+        tauTuple().rechit_e = matcher.rechit_e();
+        tauTuple().rechit_idx_element = matcher.rechit_idx_element();
+        tauTuple().rechit_detid = matcher.rechit_detid();
+        tauTuple().rechits_energy_all = matcher.rechits_energy_all();
     }
 
 private:
