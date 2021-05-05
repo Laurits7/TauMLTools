@@ -1,5 +1,6 @@
 import FWCore.ParameterSet.Config as cms
 
+
 def customize_step2(process):
     process.load('SimGeneral.MixingModule.caloTruthProducer_cfi')
     process.caloParticles.simHitCollections = cms.PSet(
@@ -22,7 +23,8 @@ def customize_step2(process):
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_*_MergedCaloTruth_*')
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_*_MergedTrackTruth_*')
     return process
- 
+
+
 def customize_step3(process):
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_simSiStripDigis_*_*')
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_simSiPixelDigis_*_*')
@@ -45,13 +47,10 @@ def customize_step3(process):
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedElectrons*_*_*')
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedJets*_*_*')
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedMuons*_*_*')
-
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedCaloJets*_*_*')
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedGenJets*_*_*')
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedMuonTrackExtras*_*_*')
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedHcalRecHits*_*_*')
-
-
-
+    process.FEVTDEBUGHLToutput.outputCommands.append('keep *_offlineSlimmedPrimaryVertices_*_*')
 
     return process
