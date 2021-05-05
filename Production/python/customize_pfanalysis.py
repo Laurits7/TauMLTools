@@ -1,6 +1,8 @@
 import FWCore.ParameterSet.Config as cms
 
 
+
+
 def customize_step2(process):
     process.load('SimGeneral.MixingModule.caloTruthProducer_cfi')
     process.caloParticles.simHitCollections = cms.PSet(
@@ -52,5 +54,7 @@ def customize_step3(process):
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedMuonTrackExtras*_*_*')
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_slimmedHcalRecHits*_*_*')
     process.FEVTDEBUGHLToutput.outputCommands.append('keep *_offlineSlimmedPrimaryVertices_*_*')
-
+    process.FEVTDEBUGHLToutput.outputCommands.append('keep *_packedPFCandidates_*_*')
+    process.FEVTDEBUGHLToutput.outputCommands.append('keep *_isolatedTracks_*_*')
+    process.FEVTDEBUGHLToutput.outputCommands.append('keep *_*Gen*_*_*')
     return process
