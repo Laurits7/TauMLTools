@@ -393,6 +393,14 @@
     VAR(std::vector<Float_t>, rechit_e) \
     VAR(std::vector<Int_t>, rechit_idx_element) \
     VAR(std::vector<UInt_t>, rechit_detid) \
+
+    VAR(std::vector<Float_t>, simhit_frac) \
+    VAR(std::vector<Float_t>, simhit_x) \
+    VAR(std::vector<Float_t>, simhit_y) \
+    VAR(std::vector<Float_t>, simhit_z) \
+    VAR(std::vector<Float_t>, simhit_det) \
+    VAR(std::vector<Float_t>, simhit_eta) \
+    VAR(std::vector<Float_t>, simhit_phi) \
     /**/
 
 

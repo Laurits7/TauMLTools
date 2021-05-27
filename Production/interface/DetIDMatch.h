@@ -96,6 +96,13 @@ public:
     std::vector<float> rechit_phi_;
     std::vector<int> rechit_idx_element_;
     std::vector<uint> rechit_detid_;
+    std::vector<float> simhit_frac_;
+    std::vector<float> simhit_x_;
+    std::vector<float> simhit_y_;
+    std::vector<float> simhit_z_;
+    std::vector<float> simhit_eta_;
+    std::vector<float> simhit_phi_;
+    std::vector<int> simhit_det_;
 
     // Get functions
     std::vector<float> rechit_e();
@@ -108,6 +115,15 @@ public:
     std::vector<float> rechit_phi();
     std::vector<int> rechit_idx_element();
     std::vector<uint> rechit_detid();
+
+
+    std::vector<float> simhit_frac();
+    std::vector<float> simhit_x();
+    std::vector<float> simhit_y();
+    std::vector<float> simhit_z();
+    std::vector<float> simhit_eta();
+    std::vector<float> simhit_phi();
+    std::vector<int> simhit_det();
     //
 
     std::vector<std::pair<int, int>> simcluster_to_element;

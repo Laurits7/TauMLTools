@@ -936,6 +936,13 @@ private:
         tauTuple().rechit_e = matcher.rechit_e();
         tauTuple().rechit_idx_element = matcher.rechit_idx_element();
         tauTuple().rechit_detid = matcher.rechit_detid();
+
+        tauTuple().rechit_x = matcher.rechit_x();
+        tauTuple().rechit_y = matcher.rechit_y();
+        tauTuple().rechit_z = matcher.rechit_z();
+        tauTuple().rechit_det = matcher.rechit_det();
+        tauTuple().rechit_eta = matcher.rechit_eta();
+        tauTuple().rechit_phi = matcher.rechit_phi();
     }
 
 private:

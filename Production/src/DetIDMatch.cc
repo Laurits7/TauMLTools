@@ -110,19 +110,59 @@ void DetIDMatcher::fill(
     for (unsigned long ncaloparticle = 0; ncaloparticle < caloParticles.size();ncaloparticle++) {
         const auto& cp = caloParticles.at(ncaloparticle);
         edm::RefToBase<CaloParticle> cpref(caloParticlesHandle, ncaloparticle);
-        for (const auto& simcluster : cp.simClusters()) {
-            std::map<uint64_t, double> detid_energy;
-            for (const auto& hf : simcluster->hits_and_fractions()) {
-                DetId id(hf.first);
-                if (id.det() == DetId::Hcal || id.det() == DetId::Ecal) {
-                  detid_energy[id.rawId()] += hf.second;
-                }
-            }
+        for (const auto& hf : simcluster->hits_and_fractions()) {
+          DetId id(hf.first);
+
+          if (id.det() == DetId::Hcal || id.det() == DetId::Ecal) {
+            const auto& pos = getHitPosition(id);
+            nhits += 1;
+
+            const float x = pos.x();
+            const float y = pos.y();
+            const float z = pos.z();
+            const float eta = pos.eta();
+            const float phi = pos.phi();
+
+            simhit_frac_.push_back(hf.second);
+            simhit_x_.push_back(x);
+            simhit_y_.push_back(y);
+            simhit_z_.push_back(z);
+            simhit_det_.push_back(id.det());
+            simhit_eta_.push_back(eta);
+            simhit_phi_.push_back(phi);
+            detid_energy[id.rawId()] += hf.second;
+          }
+        }
             simcluster_detids_.push_back(detid_energy);
         }
     }
     associateClusterToSimCluster(all_elements);
 }
+
+
+
+std::vector<float> DetIDMatcher::simhit_frac(){
+  return simhit_frac_;
+}
+std::vector<float> DetIDMatcher::simhit_x(){
+  return simhit_x_;
+}
+std::vector<float> DetIDMatcher::simhit_y(){
+  return simhit_y_;
+}
+std::vector<float> DetIDMatcher::simhit_z(){
+  return simhit_z_;
+}
+std::vector<float> DetIDMatcher::simhit_eta(){
+  return simhit_eta_;
+}
+std::vector<float> DetIDMatcher::simhit_phi(){
+  return simhit_phi_;
+}
+std::vector<int> DetIDMatcher::simhit_det(){
+  return simhit_det_;
+}
+
 
 
 std::vector<float> DetIDMatcher::rechit_x(){
