@@ -112,7 +112,7 @@ void DetIDMatcher::fill(
         edm::RefToBase<CaloParticle> cpref(caloParticlesHandle, ncaloparticle);
         int nhits = 0;
         for (const auto& simcluster : cp.simClusters()) {
-          map<uint64_t, double> detid_energy;
+          std::map<uint64_t, double> detid_energy;
           for (const auto& hf : simcluster->hits_and_fractions()) {
             DetId id(hf.first);
 
