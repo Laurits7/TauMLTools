@@ -110,6 +110,8 @@ void DetIDMatcher::fill(
     for (unsigned long ncaloparticle = 0; ncaloparticle < caloParticles.size();ncaloparticle++) {
         const auto& cp = caloParticles.at(ncaloparticle);
         edm::RefToBase<CaloParticle> cpref(caloParticlesHandle, ncaloparticle);
+        int nhits = 0;
+        for (cosnt auto& simcluster : cp.simClusters()) {
         for (const auto& hf : simcluster->hits_and_fractions()) {
           DetId id(hf.first);
 
