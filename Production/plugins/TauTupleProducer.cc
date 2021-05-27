@@ -243,7 +243,7 @@ private:
 
         edm::Handle<pat::TauCollection> boostedTaus;
         event.getByToken(boostedTaus_token, boostedTaus);
-
+ 
         edm::Handle<pat::JetCollection> jets;
         event.getByToken(jets_token, jets);
 
@@ -280,11 +280,11 @@ private:
         auto genJets = hGenJets.isValid() ? hGenJets.product() : nullptr;
         auto genJetFlavourInfos = hGenJetFlavourInfos.isValid() ? hGenJetFlavourInfos.product() : nullptr;
 
-/////////////////////////////////////////////////////
-/////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////
         FillBasedOnDetID(pfBlocks, caloParticlesHandle, geometry_token, eventSetup);
-/////////////////////////////////////////////////////
-/////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////
         TauJetBuilder builder(builderSetup, *taus, *boostedTaus, *jets, *fatJets, *cands, *electrons, *muons,
                               *isoTracks, *lostTracks, genParticles, genJets, requireGenMatch,
                               requireGenORRecoTauMatch, applyRecoPtSieve);

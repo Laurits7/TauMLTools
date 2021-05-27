@@ -8,10 +8,8 @@ namespace tau_analysis {
 
 
 double detid_compare(
-    const std::map<uint64_t,
-    double>& rechits,
-    const std::map<uint64_t,
-    double>& simhits
+    const std::map<uint64_t, double>& rechits,
+    const std::map<uint64_t, double>& simhits
 ){
   double ret = 0.0;
   for (const auto& rh : rechits) {
@@ -222,43 +220,43 @@ void DetIDMatcher::associateClusterToSimCluster(
         rechits_energy_all[id.rawId()] += pfrh.energy() * rh.fraction();
       }  //rechit_fracs
     } else if (type == reco::PFBlockElement::SC) {
-      const auto& clref = ((const reco::PFBlockElementSuperCluster*)&(elem.orig))->superClusterRef();
-      assert(clref.isNonnull());
-      const auto& cluster = *clref;
+        const auto& clref = ((const reco::PFBlockElementSuperCluster*)&(elem.orig))->superClusterRef();
+        assert(clref.isNonnull());
+        const auto& cluster = *clref;
 
-      //all rechits and the energy fractions in this cluster
-      const auto& rechit_fracs = cluster.hitsAndFractions();
-      for (const auto& rh : rechit_fracs) {
-        if (detids.find(rh.first.rawId()) != detids.end()) {
-          continue;
-        }
-        detids[rh.first.rawId()] += cluster.energy() * rh.second;
-        const auto id = rh.first;
-        float x = 0;
-        float y = 0;
-        float z = 0;
-        float eta = 0;
-        float phi = 0;
+        //all rechits and the energy fractions in this cluster
+        const auto& rechit_fracs = cluster.hitsAndFractions();
+        for (const auto& rh : rechit_fracs) {
+          if (detids.find(rh.first.rawId()) != detids.end()) {
+            continue;
+          }
+          detids[rh.first.rawId()] += cluster.energy() * rh.second;
+          const auto id = rh.first;
+          float x = 0;
+          float y = 0;
+          float z = 0;
+          float eta = 0;
+          float phi = 0;
 
-        const auto& pos = getHitPosition(id);
-        x = pos.x();
-        y = pos.y();
-        z = pos.z();
-        eta = pos.eta();
-        phi = pos.phi();
+          const auto& pos = getHitPosition(id);
+          x = pos.x();
+          y = pos.y();
+          z = pos.z();
+          eta = pos.eta();
+          phi = pos.phi();
 
-        rechit_x_.push_back(x);
-        rechit_y_.push_back(y);
-        rechit_z_.push_back(z);
-        rechit_det_.push_back(id.det());
-        rechit_subdet_.push_back(id.subdetId());
-        rechit_eta_.push_back(eta);
-        rechit_phi_.push_back(phi);
-        rechit_e_.push_back(rh.second);
-        rechit_idx_element_.push_back(idx_element);
-        rechit_detid_.push_back(id.rawId());
-        rechits_energy_all[id.rawId()] += cluster.energy() * rh.second;
-      }  //rechit_fracs
+          rechit_x_.push_back(x);
+          rechit_y_.push_back(y);
+          rechit_z_.push_back(z);
+          rechit_det_.push_back(id.det());
+          rechit_subdet_.push_back(id.subdetId());
+          rechit_eta_.push_back(eta);
+          rechit_phi_.push_back(phi);
+          rechit_e_.push_back(rh.second);
+          rechit_idx_element_.push_back(idx_element);
+          rechit_detid_.push_back(id.rawId());
+          rechits_energy_all[id.rawId()] += cluster.energy() * rh.second;
+        }  //rechit_fracs
     }
     detids_elements.push_back(detids);
     idx_element += 1;
