@@ -111,30 +111,31 @@ void DetIDMatcher::fill(
         const auto& cp = caloParticles.at(ncaloparticle);
         edm::RefToBase<CaloParticle> cpref(caloParticlesHandle, ncaloparticle);
         int nhits = 0;
-        for (cosnt auto& simcluster : cp.simClusters()) {
-        for (const auto& hf : simcluster->hits_and_fractions()) {
-          DetId id(hf.first);
+        for (const auto& simcluster : cp.simClusters()) {
+          map<uint64_t, double> detid_energy;
+          for (const auto& hf : simcluster->hits_and_fractions()) {
+            DetId id(hf.first);
 
-          if (id.det() == DetId::Hcal || id.det() == DetId::Ecal) {
-            const auto& pos = getHitPosition(id);
-            nhits += 1;
+            if (id.det() == DetId::Hcal || id.det() == DetId::Ecal) {
+              const auto& pos = getHitPosition(id);
+              nhits += 1;
 
-            const float x = pos.x();
-            const float y = pos.y();
-            const float z = pos.z();
-            const float eta = pos.eta();
-            const float phi = pos.phi();
+              const float x = pos.x();
+              const float y = pos.y();
+              const float z = pos.z();
+              const float eta = pos.eta();
+              const float phi = pos.phi();
 
-            simhit_frac_.push_back(hf.second);
-            simhit_x_.push_back(x);
-            simhit_y_.push_back(y);
-            simhit_z_.push_back(z);
-            simhit_det_.push_back(id.det());
-            simhit_eta_.push_back(eta);
-            simhit_phi_.push_back(phi);
-            detid_energy[id.rawId()] += hf.second;
+              simhit_frac_.push_back(hf.second);
+              simhit_x_.push_back(x);
+              simhit_y_.push_back(y);
+              simhit_z_.push_back(z);
+              simhit_det_.push_back(id.det());
+              simhit_eta_.push_back(eta);
+              simhit_phi_.push_back(phi);
+              detid_energy[id.rawId()] += hf.second;
+            }
           }
-        }
             simcluster_detids_.push_back(detid_energy);
         }
     }
