@@ -133,7 +133,7 @@ public:
         edm::Handle<edm::View<CaloParticle>>& caloParticlesHandle,
         edm::ESGetToken<CaloGeometry, CaloGeometryRecord>& geometry_token,
         const edm::EventSetup& eventSetup,
-        edm::Handle<reco::GenParticleCollection> genParticles
+        const std::vector<reco::GenParticleCollection> genParticles
     );
     void associateClusterToSimCluster(const std::vector<ElementWithIndex>& all_elements);
 

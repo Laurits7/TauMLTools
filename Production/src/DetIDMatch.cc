@@ -98,7 +98,7 @@ void DetIDMatcher::fill(
       edm::Handle<edm::View<CaloParticle>>& caloParticlesHandle,
       edm::ESGetToken<CaloGeometry, CaloGeometryRecord>& geometry_token,
       const edm::EventSetup& eventSetup,
-      edm::Handle<reco::GenParticleCollection> genParticles
+      const std::vector<reco::GenParticleCollection> genParticles
 ){
     // edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometry_token;
     auto& pG = eventSetup.getData(geometry_token);
