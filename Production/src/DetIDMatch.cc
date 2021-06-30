@@ -2,6 +2,7 @@
 */
 
 #include "TauMLTools/Production/interface/DetIDMatch.h"
+#include "DataFormats/Math/interface/deltaR.h"
 
 
 namespace tau_analysis {
@@ -96,7 +97,8 @@ void DetIDMatcher::fill(
       const std::vector<reco::PFBlock>& pfBlocks,
       edm::Handle<edm::View<CaloParticle>>& caloParticlesHandle,
       edm::ESGetToken<CaloGeometry, CaloGeometryRecord>& geometry_token,
-      const edm::EventSetup& eventSetup
+      const edm::EventSetup& eventSetup,
+      edm::Handle<reco::GenParticleCollection> genParticles
 ){
     // edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometry_token;
     auto& pG = eventSetup.getData(geometry_token);
@@ -109,6 +111,10 @@ void DetIDMatcher::fill(
     assert(!all_elements.empty());
     for (unsigned long ncaloparticle = 0; ncaloparticle < caloParticles.size();ncaloparticle++) {
         const auto& cp = caloParticles.at(ncaloparticle);
+        for (const auto& gp : genParticles){
+          double dR = deltaR(cp.p4(), gp.p4())
+
+        }
         edm::RefToBase<CaloParticle> cpref(caloParticlesHandle, ncaloparticle);
         int nhits = 0;
         for (const auto& simcluster : cp.simClusters()) {

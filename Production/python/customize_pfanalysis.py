@@ -1,8 +1,6 @@
 import FWCore.ParameterSet.Config as cms
 
 
-
-
 def customize_step2(process):
     process.load('SimGeneral.MixingModule.caloTruthProducer_cfi')
     process.caloParticles.simHitCollections = cms.PSet(

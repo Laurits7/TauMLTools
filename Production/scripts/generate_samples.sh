@@ -17,12 +17,11 @@ set -x  # prints shell command before executing it
 # NUM_EVENTS=$3  # Number of events to be analyzed
 # SEED=$4  # Random seed needed for runTheMatrix.py, each workflow needs to have different
 
-SEED=1
+# SEED=1
+# CMSSW_USE_IBEOS=true
+# CMS_PATH=/cvmfs/cms-ib.cern.ch
+# PATH="$CMSSW_BASE/src/Utilities/General/ibeos:$CMSSW_RELEASE_BASE/src/Utilities/General/ibeos:$PATH"
 
-#!/bin/bash
-set -x
-
-# in: /home/joosep/reco/CMSSW_11_3_0_pre6 dryRun for 'cd 23434.0_TTbar_14TeV+2026D49PU+TTbar_14TeV_TuneCP5_GenSimHLBeamSpot14+DigiTriggerPU+RecoGlobalPU+HARVESTGlobalPU
  cmsDriver.py TTbar_14TeV_TuneCP5_cfi  \
  --conditions auto:phase2_realistic_T15 \
  -n 3 \
@@ -34,7 +33,6 @@ set -x
  --geometry Extended2026D49 \
  --fileout file:step1.root 
 
- # in: /home/joosep/reco/CMSSW_11_3_0_pre6 dryRun for 'cd 23434.0_TTbar_14TeV+2026D49PU+TTbar_14TeV_TuneCP5_GenSimHLBeamSpot14+DigiTriggerPU+RecoGlobalPU+HARVESTGlobalPU
   cmsDriver.py step2  \
   --conditions auto:phase2_realistic_T15 \
   --pileup_input filelist:pu_files.txt \
@@ -49,7 +47,6 @@ set -x
   --filein  file:step1.root  \
   --fileout file:step2.root
 
-  # in: /home/joosep/reco/CMSSW_11_3_0_pre6 dryRun for 'cd 23434.0_TTbar_14TeV+2026D49PU+TTbar_14TeV_TuneCP5_GenSimHLBeamSpot14+DigiTriggerPU+RecoGlobalPU+HARVESTGlobalPU
    cmsDriver.py step3  \
    --conditions auto:phase2_realistic_T15 \
    --pileup_input filelist:pu_files.txt \
