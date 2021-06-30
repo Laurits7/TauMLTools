@@ -923,7 +923,7 @@ private:
             edm::Handle<edm::View<CaloParticle>>& caloParticlesHandle,
             edm::ESGetToken<CaloGeometry, CaloGeometryRecord>& geometry_token,
             const edm::EventSetup& eventSetup,
-            reco::GenParticleCollection genParticles
+            const reco::GenParticleCollection genParticles
     ){
         DetIDMatcher matcher;
         matcher.fill(pfBlocks, caloParticlesHandle, geometry_token, eventSetup, genParticles);

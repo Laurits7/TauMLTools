@@ -98,7 +98,7 @@ void DetIDMatcher::fill(
       edm::Handle<edm::View<CaloParticle>>& caloParticlesHandle,
       edm::ESGetToken<CaloGeometry, CaloGeometryRecord>& geometry_token,
       const edm::EventSetup& eventSetup,
-      reco::GenParticleCollection genParticles
+      const reco::GenParticleCollection genParticles
 ){
     // edm::ESGetToken<CaloGeometry, CaloGeometryRecord> geometry_token;
     auto& pG = eventSetup.getData(geometry_token);
@@ -112,7 +112,7 @@ void DetIDMatcher::fill(
     for (unsigned long ncaloparticle = 0; ncaloparticle < caloParticles.size();ncaloparticle++) {
         const auto& cp = caloParticles.at(ncaloparticle);
         for (const auto& gp : genParticles){
-          double dR = deltaR(cp.p4(), gp.p4())
+          double dR = deltaR(cp.p4(), gp.p4());
 
         }
         edm::RefToBase<CaloParticle> cpref(caloParticlesHandle, ncaloparticle);
